@@ -1,0 +1,25 @@
+{
+  "name": "v30-toucans-team-02",
+  "version": "1.0.0",
+  "description": "Your project's `readme` is as important to success as your code. For  this reason you should but as much care into it's creation and maintenance steps as you would any other component of the application.",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "watch": "npx webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chingu-voyages/v30-toucans-team-02.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chingu-voyages/v30-toucans-team-02/issues"
+  },
+  "homepage": "https://github.com/chingu-voyages/v30-toucans-team-02#readme",
+  "devDependencies": {
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  }
+}
