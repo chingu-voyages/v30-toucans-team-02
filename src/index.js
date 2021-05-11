@@ -1,3 +1,5 @@
+import "../styles/style.css";
+
 // import your function
 import myName from "./myName";
 import { functionOne, functionTwo } from "./example_export_multiple";
