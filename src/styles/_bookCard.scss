@@ -38,8 +38,40 @@ $font: "Sofia", sans-serif;
 
 .flip-card-back {
   background-color: #c9e9f6;
-  color: white;
+  color: black;
   transform: rotateY(180deg);
+}
+
+.back-card-container {
+  width: 100%;
+  height: 100%;
+  border: solid black;
+  display: flex;
+
+  flex-direction: column;
+  align-content: center;
+  div {
+    font-family: $font;
+    height: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .add-to-read-list {
+    display: flex;
+    border-top: solid thin black;
+    flex-direction: column;
+    p {
+      font-size: 12px;
+      //   padding: 3px 10px;
+    }
+  }
+}
+
+.fas:hover {
+  color: rgb(15, 171, 223);
+  transform: scale(1.1);
 }
 
 .bookCardContainer {

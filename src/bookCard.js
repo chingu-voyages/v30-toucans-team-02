@@ -16,10 +16,19 @@ const renderCard = (data) => {
       </div>
     </div>
     <div class="flip-card-back">
-      <a href="">I<a/>
-      <a href="">Add to read list<a/>
-     
-   
+      <div class = "back-card-container">
+
+        <div class ="info">
+          
+          <i class="fas fa-info-circle fa-3x"></i>
+        </div>
+        <div class = "add-to-read-list">
+        <i class="fas fa-book-reader fa-2x"></i>
+          <p>Add to read list</p>
+
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>
