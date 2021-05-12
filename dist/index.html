@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css">
     <title>Document</title>
     <script
       src="https://kit.fontawesome.com/70ea06a304.js"
@@ -13,8 +14,29 @@
   <body>
     <div id="test"></div>
 
+   
+    <div class="container">
+      <div id="search">
+        <label for="search-input">Search for a book:</label>
+        <input id="search-input" class="search-input"></input>
+        <button id="search-button">Submit</button>
+      </div>
+      <div id="results" class="card"></div>  
+    </div>
     <div class="bookCardContainer"></div>
+    
+    <!-- <div class="card">
+      <img
+        src="https://m.media-amazon.com/images/P/B08D5V14GB.01._SCLZZZZZZZ_SX500_.jpg"
+        alt="Avatar"
+      />
+      <div class="container">
+        <h4><b>John Doe</b></h4>
+        <p>Architect & Engineer</p>
+      </div>
+    </div> -->
 
+    <script src="../src/api.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
