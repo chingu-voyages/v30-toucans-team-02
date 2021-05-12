@@ -5,26 +5,29 @@ const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 //https://www.googleapis.com/books/v1/volumes?q=atomic+habits&key=AIzaSyCJilO37UK591gPqByiXK6VoUB-ZBdPIV0
 
 const searchResultsElement = document.getElementById("search-results");
-const searchButton = document.getElementById("search-button");
+//const searchButton = document.getElementById("search-button");
+const searchInput = document.getElementById("search-input");
 
 // Event Listener
-searchButton.addEventListener("click", getSearchResults);
+//searchButton.addEventListener("click", getSearchResults);
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    return getSearchResults();
+  }
+});
 
 function getSearchResults() {
-  const searchInput = document
-    .getElementById("search-input")
-    .value.split(" ")
-    .join("+");
-  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchInput}&key=${API_KEY}`;
+  const searchValue = document.getElementById("search-input").value.split(" ").join("+");
+  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}`;
 
   const result = fetch(searchQuery)
     .then((response) => {
-      // console.log(`searchInput: ${searchInput}`);
+      // console.log(`searchValue: ${searchValue}`);
       // console.log(`searchQuery: ${searchQuery}`);
       return response.json();
     })
     .then((data) => {
-      console.log(data);
+      //console.log(data);
       const book = data.items[0].volumeInfo;
       const title = book.title;
       //console.log(`Title: ${title}`);
@@ -41,3 +44,5 @@ function getSearchResults() {
       console.log("error");
     });
 }
+
+//export default getSearchResults;
