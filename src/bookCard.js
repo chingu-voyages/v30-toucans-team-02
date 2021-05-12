@@ -9,7 +9,7 @@ const renderCard = (data) => {
         <img src="${data.image}" />
         <div class="container">
           <p>${data.title}</p>
-          <span></span>
+          <span class = "line"></span>
 
           <p class="subtitle">${data.author}</p>
         </div>

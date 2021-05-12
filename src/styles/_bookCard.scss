@@ -22,6 +22,10 @@ $font: "Sofia", sans-serif;
   transform: rotateY(180deg);
 }
 
+.flip-card:hover .line {
+  border-color: yellow;
+}
+
 .flip-card-front,
 .flip-card-back {
   position: absolute;
