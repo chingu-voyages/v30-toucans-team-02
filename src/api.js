@@ -11,32 +11,33 @@ const searchButton = document.getElementById("search-button");
 searchButton.addEventListener("click", getSearchResults);
 
 function getSearchResults() {
-    const searchInput = document.getElementById("search-input").value.split(" ").join("+");
-    const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchInput}&key=${API_KEY}`;
-    
-    const result = fetch(searchQuery)
+  const searchInput = document
+    .getElementById("search-input")
+    .value.split(" ")
+    .join("+");
+  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchInput}&key=${API_KEY}`;
+
+  const result = fetch(searchQuery)
     .then((response) => {
-        // console.log(`searchInput: ${searchInput}`);
-        // console.log(`searchQuery: ${searchQuery}`);
-        return response.json();
+      // console.log(`searchInput: ${searchInput}`);
+      // console.log(`searchQuery: ${searchQuery}`);
+      return response.json();
     })
     .then((data) => {
-        //console.log(data);
-        const book = data.items[0].volumeInfo;
-        const title = book.title;
-        //console.log(`Title: ${title}`);
-        const author = book.authors[0];
-        const thumbnail = book.imageLinks.thumbnail;
+      console.log(data);
+      const book = data.items[0].volumeInfo;
+      const title = book.title;
+      //console.log(`Title: ${title}`);
+      const author = book.authors[0];
+      const thumbnail = book.imageLinks.thumbnail;
 
-        document.getElementById("results").innerHTML = `
+      document.getElementById("results").innerHTML = `
             <img src="${thumbnail}" alt="cover"/>
             <p>${title} by ${author}</p>`;
 
-        document.getElementById("results").style.display = "block";
+      document.getElementById("results").style.display = "block";
     })
     .catch((err) => {
-        console.log("error");
+      console.log("error");
     });
-
-    
 }
