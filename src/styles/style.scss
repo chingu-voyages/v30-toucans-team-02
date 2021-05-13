@@ -1,8 +1,7 @@
-@import "search";
-@import "bookCard";
 @import "variables";
 @import "mixins";
 @import "functions";
+@import "breakpoints";
 
 * {
   padding: 0;
@@ -90,6 +89,9 @@ section {
 @media screen and (max-width: 767px) {
   section {
     grid-template-columns: auto;
+  }
+  .search__input {
+    max-width: 350px;
   }
 }
 
