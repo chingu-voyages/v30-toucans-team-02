@@ -1,48 +1,31 @@
+import GOOGLE_BOOKS_API_KEY from './api_key';
+import renderCard from './bookCard';
+
 // Google Books API
-const API_KEY = "AIzaSyCJilO37UK591gPqByiXK6VoUB-ZBdPIV0";
+const API_KEY = GOOGLE_BOOKS_API_KEY;
 const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
-//const SEARCH_QUERY = GOOGLE_BOOKS_API_URL + "?q=" + SEARCH_STRING + "key=" + API_KEY;
-//https://www.googleapis.com/books/v1/volumes?q=atomic+habits&key=AIzaSyCJilO37UK591gPqByiXK6VoUB-ZBdPIV0
-
-const searchResultsElement = document.getElementById("search-results");
-//const searchButton = document.getElementById("search-button");
-const searchInput = document.getElementById("search-input");
-
-// Event Listener
-//searchButton.addEventListener("click", getSearchResults);
-searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    return getSearchResults();
-  }
-});
 
 function getSearchResults() {
-  const searchValue = document.getElementById("search-input").value.split(" ").join("+");
-  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}`;
+  const bookCardContainer = document.querySelector(".bookCardContainer");
+  bookCardContainer.innerHTML = "";
 
-  const result = fetch(searchQuery)
+  const searchValue = document.getElementById("search-input").value.split(" ").join("+");
+  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}&maxResults=25`;
+
+  fetch(searchQuery)
     .then((response) => {
-      // console.log(`searchValue: ${searchValue}`);
-      // console.log(`searchQuery: ${searchQuery}`);
       return response.json();
     })
     .then((data) => {
-      //console.log(data);
-      const book = data.items[0].volumeInfo;
-      const title = book.title;
-      //console.log(`Title: ${title}`);
-      const author = book.authors[0];
-      const thumbnail = book.imageLinks.thumbnail;
-
-      document.getElementById("results").innerHTML = `
-            <img src="${thumbnail}" alt="cover"/>
-            <p>${title} by ${author}</p>`;
-
-      document.getElementById("results").style.display = "block";
+      data.items.forEach(item => {
+        const book = item.volumeInfo;
+        const html = renderCard(book);
+        bookCardContainer.insertAdjacentHTML("beforeend", html);
+      });
     })
     .catch((err) => {
       console.log("error");
     });
 }
 
-//export default getSearchResults;
+export default getSearchResults;
