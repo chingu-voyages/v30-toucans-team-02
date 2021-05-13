@@ -11,7 +11,6 @@ function getSearchResults() {
 
   const searchValue = document.getElementById("search-input").value.split(" ").join("+");
   const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}&maxResults=25`;
-  console.log(searchQuery);
 
   fetch(searchQuery)
     .then((response) => {
