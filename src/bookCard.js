@@ -19,7 +19,7 @@ const renderCard = (data) => {
       <div class = "back-card-container">
 
         <div class ="info">
-          
+          <!-- <p class="info">${data.description}</p> -->
           <i class="fas fa-info-circle fa-3x"></i>
         </div>
         <div class = "add-to-read-list">
