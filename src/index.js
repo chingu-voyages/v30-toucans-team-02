@@ -1,3 +1,15 @@
+import "./styles/style.scss";
+import getSearchResults from './api';
+
+const searchInput = document.getElementById("search-input");
+
+// Event Listener
+searchInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    return getSearchResults(); 
+  }
+});
+
 let cardElement = document.querySelector(".container");
 console.log(cardElement);
 for (let index = 0; index < 9; index++) {

@@ -6,12 +6,12 @@ const renderCard = (data) => {
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <div class="card">
-        <img src="${data.image}" />
+        <img src="${data.imageLinks.thumbnail}" />
         <div class="container">
           <p>${data.title}</p>
           <span class = "line"></span>
 
-          <p class="subtitle">${data.author}</p>
+          <p class="subtitle">${data.authors[0]}</p>
         </div>
       </div>
     </div>
@@ -19,7 +19,7 @@ const renderCard = (data) => {
       <div class = "back-card-container">
 
         <div class ="info">
-          
+          <!-- <p class="info">${data.description}</p> -->
           <i class="fas fa-info-circle fa-3x"></i>
         </div>
         <div class = "add-to-read-list">
