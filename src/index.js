@@ -1,8 +1,8 @@
-import "./styles/style.scss";
+/*import "./styles/style.scss";
 import bookCardRender from "./bookCard";
 
 const bookCardContainer = document.querySelector(".bookCardContainer");
-
+*/
 const data = [
   {
     title: "The Book",
