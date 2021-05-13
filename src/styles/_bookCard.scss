@@ -5,7 +5,9 @@ $font: "Sofia", sans-serif;
   width: 150px;
   height: 195px;
   perspective: 1000px;
-  padding: 10px;
+  // padding: 10px;
+  padding: 20px;
+  margin: 50px 20px;
 }
 
 .flip-card-inner {
@@ -81,6 +83,7 @@ $font: "Sofia", sans-serif;
 .bookCardContainer {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .card {
