@@ -10,8 +10,9 @@ searchInput.addEventListener("keypress", (e) => {
   }
 });
 
-let cardElement = document.querySelector(".container");
-console.log(cardElement);
+//let cardElement = document.querySelector(".container");
+let cardElement = document.getElementById("placeholder-search");
+//console.log(cardElement);
 for (let index = 0; index < 9; index++) {
   cardElement.innerHTML += `<article><div class="card">
   <img
