@@ -1,9 +1,9 @@
-@import "variables";
-@import "mixins";
-@import "functions";
-@import "breakpoints";
-@import "bookCard";
-@import "search";
+@import "variables.scss";
+@import "mixins.scss";
+@import "functions.scss";
+@import "breakpoints.scss";
+@import "bookCard.scss";
+@import "search.scss";
 
 * {
   padding: 0;

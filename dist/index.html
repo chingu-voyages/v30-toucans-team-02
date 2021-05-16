@@ -4,29 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="~/dist/style.css">
     <title>Book Finder</title>
     <script
       src="https://kit.fontawesome.com/70ea06a304.js"
       crossorigin="anonymous"
     ></script>
-  <script defer src="main.js"></script></head>
+  <script defer src="./app.js"></script><link href="./main.css" rel="stylesheet"></head>
   <body>
     <header>
       <div class="search">
-          <img class="search__logo" src="/src/assets/images/logo.png" alt="logo" />
+   
+          <img class="search__logo"  alt="logo" />
           <input type="text" placeholder="Search..." class="search__input" id="search-input" />
       </div>
     </header>
-     
-  <div class="search-container">
-    <div id="search" class="container">
-      <!-- <label for="search-input">Search for a book:</label> -->
-      <input type="text" name="search-input" id="search-input" class="search-input" placeholder="Search for a book"></input>
-      <!-- <button id="search-button">Submit</button> -->
-    </div>
-    <div id="results"></div>  
-  </div>
+
   <div class="bookCardContainer"></div>
 
   <section id="placeholder-search"></section>
@@ -38,6 +31,6 @@
           Add to Wishlist
       </button>
   </footer>
-    <script src="main.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
