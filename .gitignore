@@ -5,6 +5,7 @@
 /dist
 /tmp
 /out-tsc
+./dist
 
 # Runtime data
 pids
@@ -90,3 +91,4 @@ lerna-debug.log
 # System Files
 .DS_Store
 Thumbs.db
+dist/app.js
