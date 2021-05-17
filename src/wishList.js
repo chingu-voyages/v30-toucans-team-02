@@ -1,5 +1,8 @@
+import addBookToLocalStorage from "./localStorage";
+
 const wishList = (() => {
-  let books = [];
+  //let books = [];
+  let books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
 
   const addBook = (book) => {
     const bookObject = {
@@ -12,6 +15,8 @@ const wishList = (() => {
 
     books = [...books, bookObject];
     console.log(books);
+    //addBookToLocalStorage('books', JSON.stringify(books));
+    localStorage.setItem('books', JSON.stringify(books));
   };
 
   const getBooks = () => {
