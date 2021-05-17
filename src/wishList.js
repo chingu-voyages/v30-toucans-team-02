@@ -6,7 +6,7 @@ const wishList = (() => {
       title: book.title,
       authors: book.authors[0],
       img: book.imageLinks.thumbnail,
-      discription: book.discription,
+      description: book.description,
     };
     // console.log(bookObject);
 
