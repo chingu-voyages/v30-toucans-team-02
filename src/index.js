@@ -2,6 +2,7 @@ import "./styles/style.scss";
 import getSearchResults from "./api";
 import Logo from "./assets/images/logo.png";
 import wishList from "./wishList";
+import searchedBooks from "./searchedBooks";
 
 const mainLogo = document.querySelector(".search__logo");
 mainLogo.src = Logo;
@@ -11,23 +12,23 @@ const searchInput = document.getElementById("search-input");
 // Event Listener
 searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    let data = getSearchResults();
-    console.log(data);
+    getSearchResults();
   }
 });
 
 // Book Wish List
 
 document.addEventListener("click", function (e) {
-  console.log(e);
-  if (e.target.className == "fa-book-reader") {
-    console.log("to");
+  if (e.target.id == "wishlist") {
+    let index = e.target.getAttribute("data-index");
+    let book = searchedBooks.getBooks();
+    wishList.addBook(book[index].volumeInfo);
+    // console.log(wishList.getBooks());
   }
 });
 const readListBtn = document.getElementsByClassName(".add-to-wish-list");
-console.log(readListBtn);
+// console.log(readListBtn);
 
-wishList.addBook("me", "you", "img", "dis");
 wishList.getBooks();
 
 // let cardElement = document.querySelector(".container");
