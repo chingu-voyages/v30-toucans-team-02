@@ -1,4 +1,4 @@
-const renderCard = (data) => {
+const renderCard = (data, index) => {
   const html = `
      
   
@@ -23,7 +23,7 @@ const renderCard = (data) => {
             <i class="fas fa-info-circle fa-3x"></i>
           </div>
           <div class = "add-to-read-list">
-          <i class="fas fa-book-reader fa-2x"></i>
+          <i id = "wishlist" data-index = ${index} class="fas fa-book-reader fa-2x"></i>
             <p>Add to read list</p>
 
           </div>

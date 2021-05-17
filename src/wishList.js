@@ -1,17 +1,17 @@
 const wishList = (() => {
   let books = [];
 
-  const addBook = (title, author, img, discription) => {
+  const addBook = (book) => {
     const bookObject = {
-      title: title,
-      author: author,
-      img: img,
-      discription: discription,
+      title: book.title,
+      authors: book.authors[0],
+      img: book.imageLinks.thumbnail,
+      discription: book.discription,
     };
     // console.log(bookObject);
 
     books = [...books, bookObject];
-    // console.log(books);
+    console.log(books);
   };
 
   const getBooks = () => {
