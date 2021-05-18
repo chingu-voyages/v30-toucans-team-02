@@ -19,11 +19,14 @@ searchInput.addEventListener("keypress", (e) => {
 
 // Book Wish List
 
-const wishListFooter = document.querySelector(".wishlist__book-container");
-
+const wishlistBookTitle = document.querySelector(".wishlist__book-title");
+const wishlistBookContainer = document.querySelector(
+  ".wishlist__book-container"
+);
+const wishlistFooter = document.getElementsByClassName("wishlist")[0];
 const emptyWishListDOM = () => {
-  while (wishListFooter.firstChild) {
-    wishListFooter.removeChild(wishListFooter.firstChild);
+  while (wishlistBookContainer.firstChild) {
+    wishlistBookContainer.removeChild(wishlistBookContainer.firstChild);
   }
 };
 
@@ -31,7 +34,7 @@ const wishListRender = () => {
   const books = wishList.getBooks();
   books.forEach((book, index) => {
     let html = renderWishlistBook(book, index);
-    wishListFooter.insertAdjacentHTML("beforeend", html);
+    wishlistBookContainer.insertAdjacentHTML("beforeend", html);
   });
 };
 
@@ -39,7 +42,7 @@ wishListRender();
 
 // Click event listeners
 document.addEventListener("click", function (e) {
-  // Card wishlist btn icon
+  // Add book to wish list from card icon
   let index = e.target.getAttribute("data-index");
   if (e.target.id == "wishlist") {
     let books = searchedBooks.getBooks();
@@ -51,18 +54,29 @@ document.addEventListener("click", function (e) {
       wishList.addBook(books[index].volumeInfo);
       emptyWishListDOM();
       wishListRender();
+      wishlistFooter.classList.toggle("show-wishlist");
+      setTimeout(() => {
+        wishlistFooter.classList.toggle("show-wishlist");
+      }, 2000);
     }
   }
+  // Delete card from wishlist
   if (e.target.id == "delete-card-wishlist") {
     let ISBN = e.target.getAttribute("data-ISBN");
     wishList.deleteBook(ISBN);
     emptyWishListDOM();
     wishListRender();
+    // if (wishList.getBooks().length() == 0) {
+    //   console.log("empty");
+    // }
+  }
+  // Open wishlist toggle button
+  if (e.target.id == "toggle-wishlist") {
+    wishlistFooter.classList.toggle("show-wishlist");
   }
 });
 
-const wishlistBookTitle = document.querySelector(".wishlist__book-title");
-
+// Wish list update title
 document.addEventListener("mouseover", function (e) {
   // console.log(e.target);
   if (e.target.id == "wishlist-img") {
@@ -71,11 +85,14 @@ document.addEventListener("mouseover", function (e) {
     console.log(books[index]);
     wishlistBookTitle.textContent = books[index].title;
   } else {
-    wishlistBookTitle.textContent = "";
+    if (books.length() == 0) {
+      wishlistBookTitle.textContent = "WishList Empty";
+    }
+    wishlistBookTitle.textContent = "WishList";
   }
 });
 
-const readListBtn = document.getElementsByClassName(".add-to-wish-list");
+const wishListBtn = document.getElementsByClassName(".add-to-wish-list");
 // console.log(readListBtn);
 
 wishList.getBooks();
