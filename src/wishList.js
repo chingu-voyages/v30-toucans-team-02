@@ -1,5 +1,10 @@
+//import addBookToLocalStorage from "./localStorage";
+
 const wishList = (() => {
-  let books = [];
+  //let books = [];
+
+  // check if books array is empty
+  let books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
 
   const addBook = (book) => {
     console.log(book);
@@ -14,6 +19,9 @@ const wishList = (() => {
 
     books = [...books, bookObject];
     console.log(books);
+
+    // add books array to localStorage
+    localStorage.setItem('books', JSON.stringify(books));
   };
 
   const getBooks = () => {
