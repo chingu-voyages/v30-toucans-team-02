@@ -1,4 +1,4 @@
-const GOOGLE_BOOKS_API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
+import GOOGLE_BOOKS_API_KEY from "./api_key";
 import renderCard from "./bookCard";
 import searchedBooks from "./searchedBooks";
 
