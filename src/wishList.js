@@ -17,9 +17,16 @@ const wishList = (() => {
   const getBooks = () => {
     return books;
   };
+  const deleteBook = (title) => {
+    books = books.filter((book) => book.title != title);
+    // books = books.splice(index, 1);
+    console.log("delete");
+    console.log(books);
+  };
   return {
     addBook,
     getBooks,
+    deleteBook,
   };
 })();
 
