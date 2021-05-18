@@ -64,8 +64,6 @@ module.exports = {
     },
     port: 8080,
   },
-
-  //
   plugins: [
     //CSS into /.dist
     new MiniCssExtractPlugin({ filename: "[name].css" }),
