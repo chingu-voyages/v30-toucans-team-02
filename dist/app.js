@@ -16,17 +16,7 @@
   \********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _api_key__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./api_key */ \"./src/api_key.js\");\n/* harmony import */ var _bookCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./bookCard */ \"./src/bookCard.js\");\n/* harmony import */ var _searchedBooks__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./searchedBooks */ \"./src/searchedBooks.js\");\n\n\n // Google Books API\n\nvar API_KEY = _api_key__WEBPACK_IMPORTED_MODULE_0__.default;\nvar GOOGLE_BOOKS_API_URL = \"https://www.googleapis.com/books/v1/volumes\";\n\nfunction getSearchResults() {\n  var bookCardContainer = document.querySelector(\".container\");\n  bookCardContainer.innerHTML = \"\";\n  var searchValue = document.getElementById(\"search-input\").value.split(\" \").join(\"+\");\n  var searchQuery = \"\".concat(GOOGLE_BOOKS_API_URL, \"?q=\").concat(searchValue, \"&key=\").concat(API_KEY, \"&maxResults=25\");\n  var searchResults;\n  fetch(searchQuery).then(function (response) {\n    return response.json();\n  }).then(function (data) {\n    return searchResults = data.items;\n  }).then(function (searchResults) {\n    _searchedBooks__WEBPACK_IMPORTED_MODULE_2__.default.addSearch(searchResults);\n    searchResults.forEach(function (item, index) {\n      var book = item.volumeInfo;\n      var html = (0,_bookCard__WEBPACK_IMPORTED_MODULE_1__.default)(book, index);\n      bookCardContainer.insertAdjacentHTML(\"beforeend\", html);\n    });\n  })[\"catch\"](function (err) {\n    console.log(\"error fetch\");\n  });\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getSearchResults);\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/api.js?");
-
-/***/ }),
-
-/***/ "./src/api_key.js":
-/*!************************!*\
-  !*** ./src/api_key.js ***!
-  \************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar GOOGLE_BOOKS_API_KEY = \"AIzaSyAH8UeJed2tdWtyZFxYV2ke2GmfJ1xgbMc\";\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GOOGLE_BOOKS_API_KEY);\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/api_key.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _bookCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./bookCard */ \"./src/bookCard.js\");\n/* harmony import */ var _searchedBooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./searchedBooks */ \"./src/searchedBooks.js\");\n\n // Google Books API\n\nvar API_KEY = \"AIzaSyAH8UeJed2tdWtyZFxYV2ke2GmfJ1xgbMc\";\nvar GOOGLE_BOOKS_API_URL = \"https://www.googleapis.com/books/v1/volumes\";\n\nfunction getSearchResults() {\n  var bookCardContainer = document.querySelector(\".container\");\n  bookCardContainer.innerHTML = \"\";\n  var searchValue = document.getElementById(\"search-input\").value.split(\" \").join(\"+\");\n  var searchQuery = \"\".concat(GOOGLE_BOOKS_API_URL, \"?q=\").concat(searchValue, \"&key=\").concat(API_KEY, \"&maxResults=25\");\n  var searchResults;\n  fetch(searchQuery).then(function (response) {\n    return response.json();\n  }).then(function (data) {\n    return searchResults = data.items;\n  }).then(function (searchResults) {\n    _searchedBooks__WEBPACK_IMPORTED_MODULE_1__.default.addSearch(searchResults);\n    searchResults.forEach(function (item, index) {\n      var book = item.volumeInfo;\n      var html = (0,_bookCard__WEBPACK_IMPORTED_MODULE_0__.default)(book, index);\n      bookCardContainer.insertAdjacentHTML(\"beforeend\", html);\n    });\n  })[\"catch\"](function (err) {\n    console.log(\"error fetch\");\n  });\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getSearchResults);\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/api.js?");
 
 /***/ }),
 
@@ -56,7 +46,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar renderWishlistBook = function renderWishlistBook(book, index) {\n  console.log(book);\n  var html = \"\\n\\n\\n\\n  <div  class=\\\"wishlist__img-holder\\\">\\n  <img\\n  data-index = \".concat(index, \"\\n  id = \\\"wishlist-img\\\"\\n    src=\\\"\").concat(book.img, \"\\\"\\n    alt=\\\"\\\"\\n    class=\\\"wishlist__img\\\"\\n  />\\n\\n  <button data-ISBN = \").concat(book.ISBN, \" id=\\\"delete-card-wishlist\\\" class=\\\"wishlist__btn-delete\\\">x</button>\\n</div>\\n  \\n      \\n      \\n      \");\n  return html;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderWishlistBook);\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/renderWishlistBook.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar renderWishlistBook = function renderWishlistBook(book, index) {\n  var html = \"\\n\\n\\n\\n  <div  class=\\\"wishlist__img-holder\\\">\\n  <img\\n  data-index = \".concat(index, \"\\n  id = \\\"wishlist-img\\\"\\n    src=\\\"\").concat(book.img, \"\\\"\\n    alt=\\\"\\\"\\n    class=\\\"wishlist__img\\\"\\n  />\\n\\n  <button data-ISBN = \").concat(book.ISBN, \" id=\\\"delete-card-wishlist\\\" class=\\\"wishlist__btn-delete\\\">x</button>\\n</div>\\n  \\n      \\n      \\n      \");\n  return html;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (renderWishlistBook);\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/renderWishlistBook.js?");
 
 /***/ }),
 
@@ -106,7 +96,7 @@ eval("\n\n/* eslint-disable */\nfunction normalizeUrl(pathComponents) {\n  retur
   \*******************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1621359583482\n      var cssReload = __webpack_require__(/*! ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://v30-toucans-team-02/./src/styles/style.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1621360438809\n      var cssReload = __webpack_require__(/*! ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://v30-toucans-team-02/./src/styles/style.scss?");
 
 /***/ }),
 
@@ -202,7 +192,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("80e985a0b3861e026cbb")
+/******/ 		__webpack_require__.h = () => ("f7bd34e88d84edf44520")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
