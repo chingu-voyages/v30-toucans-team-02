@@ -85,7 +85,7 @@ document.addEventListener("mouseover", function (e) {
     console.log(books[index]);
     wishlistBookTitle.textContent = books[index].title;
   } else {
-    if (books.length() == 0) {
+    if (books.length == 0) {
       wishlistBookTitle.textContent = "WishList Empty";
     }
     wishlistBookTitle.textContent = "WishList";
