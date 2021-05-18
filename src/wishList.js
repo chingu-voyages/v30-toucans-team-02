@@ -2,13 +2,15 @@ const wishList = (() => {
   let books = [];
 
   const addBook = (book) => {
+    console.log(book);
     const bookObject = {
       title: book.title,
       authors: book.authors[0],
       img: book.imageLinks.thumbnail,
       description: book.description,
+      ISBN: book.industryIdentifiers[0].identifier,
     };
-    // console.log(bookObject);
+    console.log(bookObject);
 
     books = [...books, bookObject];
     console.log(books);
@@ -17,8 +19,8 @@ const wishList = (() => {
   const getBooks = () => {
     return books;
   };
-  const deleteBook = (title) => {
-    books = books.filter((book) => book.title != title);
+  const deleteBook = (ISBN) => {
+    books = books.filter((book) => book.ISBN != ISBN);
     // books = books.splice(index, 1);
     console.log("delete");
     console.log(books);

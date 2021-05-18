@@ -12,7 +12,7 @@ const renderWishlistBook = (book, index) => {
     class="wishlist__img"
   />
 
-  <button data-index = ${index} id="delete-card-wishlist" class="wishlist__btn-delete">x</button>
+  <button data-ISBN = ${book.ISBN} id="delete-card-wishlist" class="wishlist__btn-delete">x</button>
 </div>
   
       

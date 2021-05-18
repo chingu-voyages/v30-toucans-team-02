@@ -54,7 +54,8 @@ document.addEventListener("click", function (e) {
     }
   }
   if (e.target.id == "delete-card-wishlist") {
-    wishList.deleteBook(index);
+    let ISBN = e.target.getAttribute("data-ISBN");
+    wishList.deleteBook(ISBN);
     emptyWishListDOM();
     wishListRender();
   }
@@ -63,7 +64,7 @@ document.addEventListener("click", function (e) {
 const wishlistBookTitle = document.querySelector(".wishlist__book-title");
 
 document.addEventListener("mouseover", function (e) {
-  console.log(e.target);
+  // console.log(e.target);
   if (e.target.id == "wishlist-img") {
     let index = e.target.getAttribute("data-index");
     let books = wishList.getBooks();
