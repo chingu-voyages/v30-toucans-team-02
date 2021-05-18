@@ -1,9 +1,8 @@
-import GOOGLE_BOOKS_API_KEY from "./api_key";
 import renderCard from "./bookCard";
 import searchedBooks from "./searchedBooks";
 
 // Google Books API
-const API_KEY = GOOGLE_BOOKS_API_KEY;
+const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
 const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 
 function getSearchResults() {
