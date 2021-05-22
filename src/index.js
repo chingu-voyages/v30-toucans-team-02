@@ -1,3 +1,7 @@
+import controlBooks from "./js/controller";
+
+controlBooks();
+
 import "./styles/style.scss";
 import getSearchResults from "./api";
 import Logo from "./assets/images/logo.png";
@@ -84,7 +88,6 @@ document.addEventListener("mouseover", function (e) {
     let books = wishList.getBooks();
     console.log(books[index]);
     wishlistBookTitle.textContent = books[index].title;
-  } else {
     if (books.length == 0) {
       wishlistBookTitle.textContent = "WishList Empty";
     }

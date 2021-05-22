@@ -34,7 +34,7 @@ const renderCard = (data, index) => {
 </div>
       
     
-    `;
+ `;
   return html;
 };
 
