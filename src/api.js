@@ -2,7 +2,8 @@ import renderCard from "./bookCard";
 import searchedBooks from "./searchedBooks";
 
 // Google Books API
-const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
+const API_KEY =
+  process.env.GOOGLE_BOOKS_API_KEY || "AIzaSyAH8UeJed2tdWtyZFxYV2ke2GmfJ1xgbMc"; // just for dev
 const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 
 function getSearchResults() {
@@ -20,6 +21,7 @@ function getSearchResults() {
       return response.json();
     })
     .then((data) => (searchResults = data.items))
+
     .then((searchResults) => {
       searchedBooks.addSearch(searchResults);
       searchResults.forEach((item, index) => {
@@ -31,7 +33,7 @@ function getSearchResults() {
     })
 
     .catch((err) => {
-      console.log("error fetch");
+      //console.log("error fetch");
     });
 }
 

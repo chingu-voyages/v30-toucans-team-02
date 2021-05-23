@@ -1,11 +1,15 @@
 //import addBookToLocalStorage from "./localStorage";
 
 const wishList = (() => {
+  //]
   //let books = [];
 
   // check if books array is empty
-  let books = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
-
+  // readability -- use if else
+  let books = localStorage.getItem("books")
+    ? JSON.parse(localStorage.getItem("books"))
+    : [];
+  console.log(books);
   const addBook = (book) => {
     console.log(book);
     const bookObject = {
@@ -21,7 +25,7 @@ const wishList = (() => {
     console.log(books);
 
     // add books array to localStorage
-    localStorage.setItem('books', JSON.stringify(books));
+    localStorage.setItem("books", JSON.stringify(books));
   };
 
   const getBooks = () => {

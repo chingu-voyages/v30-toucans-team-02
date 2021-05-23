@@ -4,7 +4,9 @@ import Logo from "./assets/images/logo.png";
 import wishList from "./wishList";
 import searchedBooks from "./searchedBooks";
 import renderWishlistBook from "./renderWishlistBook";
-
+import bookCard from "./bookCard";
+import api from "./api";
+import renderCard from "./bookCard";
 const mainLogo = document.querySelector(".search__logo");
 mainLogo.src = Logo;
 
@@ -14,6 +16,12 @@ const searchInput = document.getElementById("search-input");
 searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
     getSearchResults();
+
+    setTimeout(() => {
+      toggleModel();
+    }, 1500);
+
+    //console.log("searchinput", toggleModel);
   }
 });
 
@@ -79,9 +87,10 @@ document.addEventListener("click", function (e) {
 // Wish list update title
 document.addEventListener("mouseover", function (e) {
   // console.log(e.target);
+  let books = wishList.getBooks() || 0;
   if (e.target.id == "wishlist-img") {
     let index = e.target.getAttribute("data-index");
-    let books = wishList.getBooks();
+
     console.log(books[index]);
     wishlistBookTitle.textContent = books[index].title;
   } else {
@@ -96,3 +105,36 @@ const wishListBtn = document.getElementsByClassName(".add-to-wish-list");
 // console.log(readListBtn);
 
 wishList.getBooks();
+
+//Modal
+const toggleModel = () => {
+  console.log("in funcß");
+  const button = Array.from(document.getElementsByClassName("fa-info-circle"));
+  console.log(button, "first", button.length);
+  button.forEach(function (btn) {
+    console.log(btn, "btn");
+    btn.addEventListener("click", () => {
+      const modal = document.querySelector(".modal");
+      modal.style.display = "block";
+    });
+  });
+};
+window.onclick = function (event) {
+  const modal = document.querySelector(".modal");
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+};
+const modalCloseBtn = document.querySelector(".modal__btn-close");
+modalCloseBtn.addEventListener("click", () => {
+  const modal = document.querySelector(".modal");
+  modal.style.display = "none";
+});
+// const description = document.querySelector(".modal__description");
+// console.log(description);
+// book.description = book.description.substring(0, 300);
+// description.innerHTML = hgfty";
+// // description.innerHTML = "scdfwf";
+// const description = document.querySelector(".modal__description");
+// description.innerHTML = `${data.description}`;
+// console.log(description);
