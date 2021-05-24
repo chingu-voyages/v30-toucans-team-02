@@ -15,16 +15,15 @@ export const loadSearchResults = async (query) => {
     const data = await res.json();
     console.log(data.items);
 
-    // fetch data
-
-    // state.books = books.items.map((book) => {
-    //   return {
-    //     ISBN: book.
-    //     title: book.
-    //     author: book.
-    //     img: book.,
-    //   };
-    // });
+  
+    state.books = data.items.map((book) => {
+      return {
+        ISBN: book.volume
+        title: book.
+        author: book.
+        img: book.,
+      };
+    });
     console.log(state.books);
   } catch (err) {
     throw err;

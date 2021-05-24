@@ -42,17 +42,6 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _js_
 
 /***/ }),
 
-/***/ "./src/js/config.js":
-/*!**************************!*\
-  !*** ./src/js/config.js ***!
-  \**************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"API_KEY\": () => (/* binding */ API_KEY),\n/* harmony export */   \"GOOGLE_BOOKS_API_URL\": () => (/* binding */ GOOGLE_BOOKS_API_URL)\n/* harmony export */ });\nvar API_KEY = \"AIzaSyAH8UeJed2tdWtyZFxYV2ke2GmfJ1xgbMc\";\nvar GOOGLE_BOOKS_API_URL = \"https://www.googleapis.com/books/v1/volumes\";\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/js/config.js?");
-
-/***/ }),
-
 /***/ "./src/js/controller.js":
 /*!******************************!*\
   !*** ./src/js/controller.js ***!
@@ -68,10 +57,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /*!*************************!*\
   !*** ./src/js/model.js ***!
   \*************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"state\": () => (/* binding */ state),\n/* harmony export */   \"loadSearchResults\": () => (/* binding */ loadSearchResults)\n/* harmony export */ });\n/* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config */ \"./src/js/config.js\");\nfunction asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }\n\nfunction _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"next\", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, \"throw\", err); } _next(undefined); }); }; }\n\n\nvar state = {\n  books: [{\n    ISBN: \"987\",\n    title: \"test\",\n    author: \"name\",\n    img: \"yo\"\n  }, {\n    ISBN: \"987\",\n    title: \"test\",\n    author: \"name\",\n    img: \"yo\"\n  }]\n};\nvar loadSearchResults = /*#__PURE__*/function () {\n  var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(query) {\n    var searchQuery, res, data;\n    return regeneratorRuntime.wrap(function _callee$(_context) {\n      while (1) {\n        switch (_context.prev = _context.next) {\n          case 0:\n            console.log(query);\n            _context.prev = 1;\n            searchQuery = \"\".concat(_config__WEBPACK_IMPORTED_MODULE_0__.GOOGLE_BOOKS_API_URL, \"?q=\").concat(query, \"&key=\").concat(_config__WEBPACK_IMPORTED_MODULE_0__.API_KEY, \"&maxResults=25\");\n            _context.next = 5;\n            return fetch(searchQuery);\n\n          case 5:\n            res = _context.sent;\n            _context.next = 8;\n            return res.json();\n\n          case 8:\n            data = _context.sent;\n            console.log(data.items); // fetch data\n            // state.books = books.items.map((book) => {\n            //   return {\n            //     ISBN: book.\n            //     title: book.\n            //     author: book.\n            //     img: book.,\n            //   };\n            // });\n\n            console.log(state.books);\n            _context.next = 16;\n            break;\n\n          case 13:\n            _context.prev = 13;\n            _context.t0 = _context[\"catch\"](1);\n            throw _context.t0;\n\n          case 16:\n          case \"end\":\n            return _context.stop();\n        }\n      }\n    }, _callee, null, [[1, 13]]);\n  }));\n\n  return function loadSearchResults(_x) {\n    return _ref.apply(this, arguments);\n  };\n}(); // export const loadBooks = async (search) => {\n//   const book = [];\n//   // fetch data from api\n//   // const { book } = data.data;\n//   // state.books = {\n//   //     ISBN:\n//   //     title:\n//   //     author:\n//   //     image:\n//   // }\n// };\n// export const loadSearchResults = async (query)\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/js/model.js?");
+eval("throw new Error(\"Module build failed (from ./node_modules/babel-loader/lib/index.js):\\nSyntaxError: /home/joe/chingu/v30-toucans-team-02/src/js/model.js: Unexpected token, expected \\\",\\\" (22:8)\\n\\n\\u001b[0m \\u001b[90m 20 |\\u001b[39m       \\u001b[36mreturn\\u001b[39m {\\u001b[0m\\n\\u001b[0m \\u001b[90m 21 |\\u001b[39m         \\u001b[33mISBN\\u001b[39m\\u001b[33m:\\u001b[39m book\\u001b[33m.\\u001b[39mvolume\\u001b[0m\\n\\u001b[0m\\u001b[31m\\u001b[1m>\\u001b[22m\\u001b[39m\\u001b[90m 22 |\\u001b[39m         title\\u001b[33m:\\u001b[39m book\\u001b[33m.\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m    |\\u001b[39m         \\u001b[31m\\u001b[1m^\\u001b[22m\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 23 |\\u001b[39m         author\\u001b[33m:\\u001b[39m book\\u001b[33m.\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 24 |\\u001b[39m         img\\u001b[33m:\\u001b[39m book\\u001b[33m.\\u001b[39m\\u001b[33m,\\u001b[39m\\u001b[0m\\n\\u001b[0m \\u001b[90m 25 |\\u001b[39m       }\\u001b[33m;\\u001b[39m\\u001b[0m\\n    at Parser._raise (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:810:17)\\n    at Parser.raiseWithData (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:803:17)\\n    at Parser.raise (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:764:17)\\n    at Parser.unexpected (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:9967:16)\\n    at Parser.expect (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:9941:28)\\n    at Parser.parseObjectLike (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:11730:14)\\n    at Parser.parseExprAtom (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:11289:23)\\n    at Parser.parseExprSubscripts (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:10941:23)\\n    at Parser.parseUpdate (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:10921:21)\\n    at Parser.parseMaybeUnary (/home/joe/chingu/v30-toucans-team-02/node_modules/@babel/core/node_modules/@babel/parser/lib/index.js:10899:23)\");\n\n//# sourceURL=webpack://v30-toucans-team-02/./src/js/model.js?");
 
 /***/ }),
 
@@ -3569,7 +3557,7 @@ eval("\n\n/* eslint-disable */\nfunction normalizeUrl(pathComponents) {\n  retur
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1621885270589\n      var cssReload = __webpack_require__(/*! ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://v30-toucans-team-02/./src/styles/style.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n    if(true) {\n      // 1621801058664\n      var cssReload = __webpack_require__(/*! ./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js */ \"./node_modules/mini-css-extract-plugin/dist/hmr/hotModuleReplacement.js\")(module.id, {\"locals\":false});\n      module.hot.dispose(cssReload);\n      module.hot.accept(undefined, cssReload);\n    }\n  \n\n//# sourceURL=webpack://v30-toucans-team-02/./src/styles/style.scss?");
 
 /***/ }),
 
@@ -3666,7 +3654,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("0493eb9b66188dc8c3b9")
+/******/ 		__webpack_require__.h = () => ("c4be612c76e3bd607260")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
