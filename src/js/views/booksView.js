@@ -5,8 +5,7 @@ class BookView {
   render(data) {
     this.#data = data;
     const markup = this.#generateMarkup();
-    console.log("this is this data");
-    console.log(this.#data);
+
     this.#clear();
     this.#parentElement.insertAdjacentHTML("afterbegin", markup);
   }
@@ -15,8 +14,9 @@ class BookView {
     this.#parentElement.innerHTML = "";
   }
 
+  // addHandleerender(handler)
+
   #generateMarkup() {
-    console.log(this.#data);
     const html = `
      
   
@@ -55,7 +55,7 @@ class BookView {
         
       
    `;
-    console.log(html);
+
     return html;
   }
 }
