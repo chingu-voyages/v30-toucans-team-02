@@ -26,7 +26,7 @@ function getSearchResults() {
         const book = item.volumeInfo;
         const html = renderCard(book, index);
 
-        bookCardContainer.insertAdjacentHTML("beforeend", html);
+        // bookCardContainer.insertAdjacentHTML("beforeend", html);
       });
     })
 

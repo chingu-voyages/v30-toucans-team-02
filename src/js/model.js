@@ -1,3 +1,5 @@
+import { GOOGLE_BOOKS_API_URL, API_KEY } from "./config";
+
 export const state = {
   books: [
     { ISBN: "987", title: "test", author: "name", img: "yo" },
@@ -8,17 +10,17 @@ export const state = {
 export const loadSearchResults = async (query) => {
   console.log(query);
   try {
-    // console.log("Model");
-    // console.log(query);
     // fetch data
-    // state.books = data.map(book =>{
+
+    // state.books = books.items.map((book) => {
     //   return {
-    //     ISBN: book.isbn,
-    //     title: book.title,
-    //     author: book.author,
-    //     img: book.img,
-    //   }
-    // })
+    //     ISBN: book.
+    //     title: book.
+    //     author: book.
+    //     img: book.,
+    //   };
+    // });
+    console.log(state.books);
   } catch (err) {
     throw err;
   }

@@ -1,6 +1,6 @@
 import controlBooks from "./js/controller";
 
-controlBooks();
+// controlBooks();
 
 import "./styles/style.scss";
 import getSearchResults from "./api";

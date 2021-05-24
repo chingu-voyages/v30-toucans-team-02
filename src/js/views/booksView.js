@@ -1,13 +1,16 @@
 class BookView {
   #parentElement = document.querySelector(".container");
   #data;
+  #errorMessage = "We could not find any books. Please try another search!";
 
   render(data) {
     this.#data = data;
-    const markup = this.#generateMarkup();
-
     this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", markup);
+    console.log(data);
+    data.forEach((book) => {
+      let markup = this.#generateMarkup(book);
+      this.#parentElement.insertAdjacentHTML("beforeend", markup);
+    });
   }
 
   #clear() {
@@ -16,7 +19,7 @@ class BookView {
 
   // addHandleerender(handler)
 
-  #generateMarkup() {
+  #generateMarkup(book) {
     const html = `
      
   
@@ -24,12 +27,12 @@ class BookView {
       <div class="flipcard__inner">
         <div class="flipcard__front">
           <div class="flipcard__card">
-            <img  src="${this.#data.img}" />
+            <img  src="${book.img}" />
             <div class="flipcard__details">
-              <p>${this.#data.title}</p>
+              <p>${book.title}</p>
               <span class = "line"></span>
   
-              <p class="subtitle">${this.#data.authors}</p>
+              <p class="subtitle">${book.authors}</p>
             </div>
           </div>
         </div>
@@ -41,9 +44,7 @@ class BookView {
               <i class="fas fa-info-circle fa-3x"></i>
             </div>
             <div class = "add-to-read-list">
-            <i id = "wishlist" data-index = ${
-              this.#data.ISBN
-            } class="fas fa-book-reader fa-2x"></i>
+            <i id = "wishlist" data-index = ${book.ISBN} class="fas fa-book-reader fa-2x"></i>
               <p>Add to read list</p>
   
             </div>
