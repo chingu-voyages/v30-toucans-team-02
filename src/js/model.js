@@ -17,11 +17,12 @@ export const loadSearchResults = async (query) => {
 
   
     state.books = data.items.map((book) => {
+      const book = book.volumeInfo;
       return {
-        ISBN: book.volume
-        title: book.
-        author: book.
-        img: book.,
+        ISBN: book.industryIdentifiers[0].identifier,
+        title: book.title,
+        author: book.authors[0],
+        img: book.imageLinks.thumbnail,
       };
     });
     console.log(state.books);
