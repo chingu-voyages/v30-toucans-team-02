@@ -15,14 +15,14 @@ export const loadSearchResults = async (query) => {
     const data = await res.json();
     console.log(data.items);
 
-  
-    state.books = data.items.map((book) => {
-      const book = book.volumeInfo;
+    state.books = data.items.map((item) => {
+      const book = item.volumeInfo;
       return {
         ISBN: book.industryIdentifiers[0].identifier,
         title: book.title,
         author: book.authors[0],
         img: book.imageLinks.thumbnail,
+        description: book.description
       };
     });
     console.log(state.books);
