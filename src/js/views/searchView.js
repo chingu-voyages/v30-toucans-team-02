@@ -11,7 +11,6 @@ class SearchView {
 
   addHandlerSearch(handler) {
     this.#parentEl.addEventListener("keypress", (e) => {
-      console.log("hello");
       if (e.key === "Enter") {
         // this.clear();
         handler();

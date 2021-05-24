@@ -10,6 +10,11 @@ export const state = {
 export const loadSearchResults = async (query) => {
   console.log(query);
   try {
+    const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
+    const res = await fetch(searchQuery);
+    const data = await res.json();
+    console.log(data.items);
+
     // fetch data
 
     // state.books = books.items.map((book) => {
