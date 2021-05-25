@@ -22,18 +22,19 @@ const controlSearchResults = async () => {
 
 // Wishlist
 
-const controlRenderWishlist = () => {
-  wishlistView.render(model.state.wishlist);
-  wishlistView.toggleShow();
-};
-
 const controlAddBookWishlist = (ISBN) => {
   let tryAdd = model.addBookWishlist(ISBN);
   console.log(tryAdd);
   if (!tryAdd) return;
 
   wishlistView.render(model.state.wishlist);
-  wishlistView.toggleShow();
+
+  if (wishlistView.wishlistIsOpen() == false) {
+    wishlistView.toggleShow();
+    setTimeout(() => {
+      wishlistView.toggleShow();
+    }, 2000);
+  }
 };
 
 const controlDeleteBookWishlist = (ISBN) => {
@@ -43,11 +44,15 @@ const controlDeleteBookWishlist = (ISBN) => {
   wishlistView.render(model.state.wishlist);
 };
 
+const controlWishListBtn = () => {
+  wishlistView.toggleShow();
+};
+
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
   wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
-  wishlistView.showWishListButton();
+  wishlistView.addHandlerShowWishListButton(controlWishListBtn);
 };
 
 init();

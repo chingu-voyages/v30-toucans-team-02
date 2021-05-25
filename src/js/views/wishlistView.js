@@ -2,6 +2,7 @@ class WishlistView {
   // #parentElement = document.querySelector(".wishlist__book-container");
   #parentElement = document.querySelector(".wishlist");
   #data;
+  #wishlistShow = false;
   #errorMessage = "We could not find any books. Please try another search!";
 
   render(data) {
@@ -24,9 +25,10 @@ class WishlistView {
 
   toggleShow() {
     this.#parentElement.classList.toggle("show-wishlist");
-    setTimeout(() => {
-      this.#parentElement.classList.toggle("show-wishlist");
-    }, 2000);
+  }
+
+  wishlistIsOpen() {
+    return this.#wishlistShow;
   }
 
   addHandlerDeleteBookWishlist(handler) {
@@ -38,10 +40,10 @@ class WishlistView {
     });
   }
 
-  showWishListButton() {
+  addHandlerShowWishListButton(handler) {
     document.querySelector(".btn__wishlist").addEventListener("click", (e) => {
-      console.log(e);
-      this.#parentElement.classList.toggle("show-wishlist");
+      this.#wishlistShow = !this.#wishlistShow;
+      handler();
     });
   }
   #generateMarkup(book) {

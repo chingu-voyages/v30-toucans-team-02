@@ -1,9 +1,10 @@
 $font: "Sofia", sans-serif;
+@import "variables";
 
 .flipcard {
   background-color: transparent;
-  width: 200px;
-  height: 250px;
+  height: $card-height;
+  width: $card-width;
   perspective: 1000px;
   padding: 10px;
 
@@ -34,10 +35,12 @@ $font: "Sofia", sans-serif;
 
     border-radius: 2%;
     transition: 0.3s;
+    object-fit: fill;
     img {
       border: solid black;
       height: 100%;
       width: 100%;
+      object-fit: cover;
     }
     .flipcard__details {
       display: flex;
