@@ -17,7 +17,14 @@ class BookView {
     this.#parentElement.innerHTML = "";
   }
 
-  // addHandleerender(handler)
+  addHandlerAddBookWishlist(handler) {
+    this.#parentElement.addEventListener("click", (e) => {
+      if (e.target.id == "wishlist") {
+        let ISBN = e.target.getAttribute("data-index");
+        handler(ISBN);
+      }
+    });
+  }
 
   #generateMarkup(book) {
     const html = `

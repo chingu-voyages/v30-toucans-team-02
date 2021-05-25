@@ -1,4 +1,5 @@
 import * as model from "./model";
+import booksView from "./views/booksView";
 import bookView from "./views/booksView";
 import searchView from "./views/searchView";
 
@@ -10,15 +11,23 @@ const controlSearchResults = async () => {
 
     if (!query) return;
     await model.loadSearchResults(query);
-    // console.log(model.state.books);
+
     bookView.render(model.state.books);
   } catch (err) {
     console.log(err);
   }
 };
 
+// Wishlist
+
+const controlAddBookWishlist = (ISBN) => {
+  model.addBookWishlist(ISBN);
+  // model.getWishlist()
+};
+
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
+  booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
 };
 
 init();

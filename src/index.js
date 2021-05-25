@@ -48,7 +48,7 @@ wishListRender();
 document.addEventListener("click", function (e) {
   // Add book to wish list from card icon
   let index = e.target.getAttribute("data-index");
-  if (e.target.id == "wishlist") {
+  if (e.target.id == "wishlist4") {
     let books = searchedBooks.getBooks();
     let book = books[index].volumeInfo;
     let wishlist = wishList.getBooks();

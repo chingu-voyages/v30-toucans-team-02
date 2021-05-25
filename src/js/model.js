@@ -5,6 +5,7 @@ export const state = {
     { ISBN: "987", title: "test", author: "name", img: "yo" },
     { ISBN: "987", title: "test", author: "name", img: "yo" },
   ],
+  wishlist: [],
 };
 
 export const loadSearchResults = async (query) => {
@@ -22,7 +23,7 @@ export const loadSearchResults = async (query) => {
         title: book.title,
         author: book.authors[0],
         img: book.imageLinks.thumbnail,
-        description: book.description
+        description: book.description,
       };
     });
     console.log(state.books);
@@ -31,16 +32,23 @@ export const loadSearchResults = async (query) => {
   }
 };
 
-// export const loadBooks = async (search) => {
-//   const book = [];
-//   // fetch data from api
-//   // const { book } = data.data;
-//   // state.books = {
-//   //     ISBN:
-//   //     title:
-//   //     author:
-//   //     image:
-//   // }
-// };
+// Wishlist
 
-// export const loadSearchResults = async (query)
+export const getWishlist = () => {
+  return state.wishlist;
+};
+
+export const addBookWishlist = (ISBN) => {
+  if (state.wishlist.find((b) => b.ISBN == ISBN)) {
+    window.alert(`'This book is already in te wishlist.`);
+    return;
+  }
+  const book = state.books.find((i) => i.ISBN == ISBN);
+
+  state.wishlist = [...state.wishlist, book];
+  console.log(state.wishlist);
+};
+
+export const deleteBookWishlist = (book) => {
+  state.wishlist = state.wishlist.filter((book) => book.ISBN != ISBN);
+};
