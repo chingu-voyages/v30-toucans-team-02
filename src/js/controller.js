@@ -1,9 +1,11 @@
 import * as model from "./model";
 import booksView from "./views/booksView";
-import bookView from "./views/booksView";
-import searchView from "./views/searchView";
+import wishlistView from "./views/wishlistView";
 
-bookView.render(model.state.books);
+import searchView from "./views/searchView";
+import wishList from "../wishList";
+
+booksView.render(model.state.books);
 
 const controlSearchResults = async () => {
   try {
@@ -12,7 +14,7 @@ const controlSearchResults = async () => {
     if (!query) return;
     await model.loadSearchResults(query);
 
-    bookView.render(model.state.books);
+    booksView.render(model.state.books);
   } catch (err) {
     console.log(err);
   }
@@ -20,14 +22,32 @@ const controlSearchResults = async () => {
 
 // Wishlist
 
+const controlRenderWishlist = () => {
+  wishlistView.render(model.state.wishlist);
+  wishlistView.toggleShow();
+};
+
 const controlAddBookWishlist = (ISBN) => {
-  model.addBookWishlist(ISBN);
-  // model.getWishlist()
+  let tryAdd = model.addBookWishlist(ISBN);
+  console.log(tryAdd);
+  if (!tryAdd) return;
+
+  wishlistView.render(model.state.wishlist);
+  wishlistView.toggleShow();
+};
+
+const controlDeleteBookWishlist = (ISBN) => {
+  console.log(ISBN);
+  let del = model.deleteBookWishlist(ISBN);
+  if (!del) return;
+  wishlistView.render(model.state.wishlist);
 };
 
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
+  wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
+  wishlistView.showWishListButton();
 };
 
 init();

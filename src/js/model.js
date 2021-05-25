@@ -34,21 +34,27 @@ export const loadSearchResults = async (query) => {
 
 // Wishlist
 
+const findBook = (ISBN, msg) => {
+  if (state.wishlist.find((b) => b.ISBN == ISBN)) {
+    window.alert(msg);
+    return true;
+  }
+};
+
 export const getWishlist = () => {
   return state.wishlist;
 };
 
 export const addBookWishlist = (ISBN) => {
-  if (state.wishlist.find((b) => b.ISBN == ISBN)) {
-    window.alert(`'This book is already in te wishlist.`);
-    return;
+  if (findBook(ISBN, `'This book is already in the wishlist.`)) {
+    return false;
   }
   const book = state.books.find((i) => i.ISBN == ISBN);
-
   state.wishlist = [...state.wishlist, book];
-  console.log(state.wishlist);
+  return true;
 };
 
-export const deleteBookWishlist = (book) => {
+export const deleteBookWishlist = (ISBN) => {
   state.wishlist = state.wishlist.filter((book) => book.ISBN != ISBN);
+  return true;
 };

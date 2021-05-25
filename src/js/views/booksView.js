@@ -6,7 +6,6 @@ class BookView {
   render(data) {
     this.#data = data;
     this.#clear();
-    console.log(data);
     data.forEach((book) => {
       let markup = this.#generateMarkup(book);
       this.#parentElement.insertAdjacentHTML("beforeend", markup);
