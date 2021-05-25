@@ -107,34 +107,36 @@ const wishListBtn = document.getElementsByClassName(".add-to-wish-list");
 wishList.getBooks();
 
 //Modal
+
+let descriptionArray = [];
+export default function getDescription(description, index) {
+  descriptionArray.push(description);
+  console.log(descriptionArray);
+}
+
 const toggleModel = () => {
-  console.log("in funcß");
   const button = Array.from(document.getElementsByClassName("fa-info-circle"));
-  console.log(button, "first", button.length);
-  button.forEach(function (btn) {
-    console.log(btn, "btn");
-    btn.addEventListener("click", () => {
+
+  button.forEach(function (btn, index) {
+    // modal.setAttribute("data-key", index);
+    btn.addEventListener("click", (book) => {
       const modal = document.querySelector(".modal");
       modal.style.display = "block";
+      const descriptionContainer = document.querySelector(
+        ".modal__description"
+      );
+      if (`${descriptionArray[index]}` === "undefined") {
+        descriptionContainer.innerHTML =
+          "Description for this title is not available.";
+      } else {
+        descriptionContainer.innerHTML = `${descriptionArray[index]}`;
+      }
     });
   });
 };
-window.onclick = function (event) {
-  const modal = document.querySelector(".modal");
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-};
+
 const modalCloseBtn = document.querySelector(".modal__btn-close");
 modalCloseBtn.addEventListener("click", () => {
   const modal = document.querySelector(".modal");
   modal.style.display = "none";
 });
-// const description = document.querySelector(".modal__description");
-// console.log(description);
-// book.description = book.description.substring(0, 300);
-// description.innerHTML = hgfty";
-// // description.innerHTML = "scdfwf";
-// const description = document.querySelector(".modal__description");
-// description.innerHTML = `${data.description}`;
-// console.log(description);

@@ -1,5 +1,6 @@
 import renderCard from "./bookCard";
 import searchedBooks from "./searchedBooks";
+import getDescription from "./index";
 
 // Google Books API
 const API_KEY =
@@ -27,6 +28,7 @@ function getSearchResults() {
       searchResults.forEach((item, index) => {
         const book = item.volumeInfo;
         const html = renderCard(book, index);
+        const des = getDescription(book.description, index);
 
         bookCardContainer.insertAdjacentHTML("beforeend", html);
       });

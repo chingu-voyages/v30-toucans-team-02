@@ -1,13 +1,5 @@
 const renderCard = (data, index) => {
   const html = `
-
-  <div id='myModal' class='modal'>
-  <div class='modal__content'>
-  <span class="modal__btn-close">&times;</span>
-  <p class='modal__description'>${data.description}</p>
-</div>
-</div>
-
   <div class="flipcard">
     <div class="flipcard__inner">
       <div class="flipcard__front">
@@ -23,7 +15,7 @@ const renderCard = (data, index) => {
       <div class="flipcard__back">
         <div class = "flipcard__backcard">
           <div class ="info">
-           <p > ${data.description}</p>
+         
             <i class="fas fa-info-circle fa-3x nm"></i>
           </div>
           <div class = "add-to-read-list">
