@@ -2,8 +2,7 @@ import renderCard from "./bookCard";
 import searchedBooks from "./searchedBooks";
 
 // Google Books API
-const API_KEY =
-  process.env.GOOGLE_BOOKS_API_KEY || "AIzaSyAH8UeJed2tdWtyZFxYV2ke2GmfJ1xgbMc"; // just for dev;
+const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
 const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 
 async function getSearchResults() {
