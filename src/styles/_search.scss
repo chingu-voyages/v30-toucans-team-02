@@ -7,7 +7,6 @@
 .search {
   @include flex;
   margin-top: 80px;
-
   &__logo {
     width: 100%;
     max-width: 280px;
@@ -20,7 +19,6 @@
     border-radius: 3px;
     margin: 10px auto;
     border: 1px solid black;
-
     @media screen and (max-width: 767px) {
       max-width: 300px;
     }

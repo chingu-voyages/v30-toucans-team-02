@@ -27,7 +27,7 @@
     bottom: 4px;
     right: 0px;
     width: 20px;
-    color: blue;
+    color: $blue-color;
   }
   &__img {
     border: solid thin $primary-color;
@@ -58,7 +58,6 @@
     font-size: 15px;
   }
 }
-
 .show-wishlist {
   visibility: visible;
   opacity: 1;

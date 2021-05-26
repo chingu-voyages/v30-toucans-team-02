@@ -28,3 +28,9 @@
   position: fixed;
   width: 100%;
 }
+
+@mixin paragraph {
+  font-size: 12px;
+  padding: 8px 0px 0px 0px;
+  margin: 0px;
+}
