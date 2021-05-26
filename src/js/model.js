@@ -9,24 +9,24 @@ export const state = {
 };
 
 export const loadSearchResults = async (query) => {
-  console.log(query);
+  //console.log(query);
   try {
     const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
     const res = await fetch(searchQuery);
     const data = await res.json();
-    console.log(data.items);
+    //console.log("data.items", data.items);
 
     state.books = data.items.map((item) => {
       const book = item.volumeInfo;
       return {
         ISBN: book.industryIdentifiers[0].identifier,
         title: book.title,
-        author: book.authors[0],
+        ...(book.authors && {author: book.authors[0]}),
         img: book.imageLinks.thumbnail,
         description: book.description,
       };
     });
-    console.log(state.books);
+    //console.log("state.books", state.books);
   } catch (err) {
     throw err;
   }

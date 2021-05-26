@@ -38,7 +38,7 @@ class BookView {
               <p>${book.title}</p>
               <span class = "line"></span>
   
-              <p class="subtitle">${book.author}</p>
+              <p class="subtitle">${book.author ? book.author : ""}</p>
             </div>
           </div>
         </div>
