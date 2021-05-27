@@ -42,6 +42,8 @@ const findBook = (ISBN, msg) => {
 };
 
 export const getWishlist = () => {
+  state.wishlist = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+  //console.log("wishlist", state.wishlist);
   return state.wishlist;
 };
 
@@ -51,10 +53,12 @@ export const addBookWishlist = (ISBN) => {
   }
   const book = state.books.find((i) => i.ISBN == ISBN);
   state.wishlist = [...state.wishlist, book];
+  localStorage.setItem('books', JSON.stringify(state.wishlist));
   return true;
 };
 
 export const deleteBookWishlist = (ISBN) => {
   state.wishlist = state.wishlist.filter((book) => book.ISBN != ISBN);
+  localStorage.setItem('books', JSON.stringify(state.wishlist));
   return true;
 };
