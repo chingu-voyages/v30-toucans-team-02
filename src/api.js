@@ -24,6 +24,7 @@ function getSearchResults() {
 
     .then((searchResults) => {
       searchedBooks.addSearch(searchResults);
+
       searchResults.forEach((item, index) => {
         const book = item.volumeInfo;
         const html = renderCard(book, index);

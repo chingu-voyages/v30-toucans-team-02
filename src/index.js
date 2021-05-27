@@ -11,10 +11,11 @@ const mainLogo = document.querySelector(".search__logo");
 mainLogo.src = Logo;
 
 const searchInput = document.getElementById("search-input");
-
+let clearDescriptionResults = false;
 // Event Listener
 searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
+    clearDescriptionResults = true;
     getSearchResults();
 
     setTimeout(() => {
@@ -110,8 +111,15 @@ wishList.getBooks();
 
 let descriptionArray = [];
 export default function getDescription(description, index) {
-  descriptionArray.push(description);
-  console.log(descriptionArray);
+  if (clearDescriptionResults) {
+    descriptionArray = [];
+    clearDescriptionResults = false;
+    descriptionArray.push(description);
+  } else {
+    descriptionArray.push(description);
+  }
+
+  console.log(descriptionArray, index);
 }
 
 const toggleModel = () => {
