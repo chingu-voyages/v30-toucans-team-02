@@ -48,11 +48,19 @@ const controlWishListBtn = () => {
   wishlistView.toggleShow();
 };
 
+const loadLocalStorage = () => {
+  //getWishlist();
+  console.log("getWishlist()", model.getWishlist());
+  wishlistView.render(model.getWishlist());
+  //getWishlist() ? this.render(getWishlist()) : [];
+}
+
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
   wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
   wishlistView.addHandlerShowWishListButton(controlWishListBtn);
+  loadLocalStorage();
 };
 
 init();

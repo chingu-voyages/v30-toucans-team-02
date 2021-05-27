@@ -1,4 +1,4 @@
-import { getWishlist } from "../model";
+//import { getWishlist } from "../model";
 
 class WishlistView {
   // #parentElement = document.querySelector(".wishlist__book-container");
@@ -43,7 +43,6 @@ class WishlistView {
 
   addHandlerShowWishListButton(handler) {
     document.querySelector(".btn__wishlist").addEventListener("click", (e) => {
-      getWishlist() ? this.render(getWishlist()) : [];
       this.#wishlistShow = !this.#wishlistShow;
       handler();
     });
