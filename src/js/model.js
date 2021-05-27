@@ -22,7 +22,7 @@ export const loadSearchResults = async (query) => {
         ISBN: book.industryIdentifiers[0].identifier,
         title: book.title,
         ...(book.authors && {author: book.authors[0]}),
-        img: book.imageLinks.thumbnail,
+        ...(book.imageLinks && {img: book.imageLinks.thumbnail}),
         description: book.description,
       };
     });
