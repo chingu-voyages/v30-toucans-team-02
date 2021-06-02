@@ -65,7 +65,7 @@ const controlGetDescriptionArray = () => {
 };
 
 const controlBookDescriptionToggleModal = () => {
-  return "biggie smalls";
+ // return
 }
 
 const init = () => {
