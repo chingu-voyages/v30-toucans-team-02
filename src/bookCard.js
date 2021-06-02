@@ -31,7 +31,7 @@ const renderCard = (data, index) => {
 </div>
       
     
-    `;
+ `;
   return html;
 };
 // const modal = () => {

@@ -30,7 +30,7 @@ function getSearchResults() {
         const html = renderCard(book, index);
         const des = getDescription(book.description, index);
 
-        bookCardContainer.insertAdjacentHTML("beforeend", html);
+        // bookCardContainer.insertAdjacentHTML("beforeend", html);
       });
     })
 
