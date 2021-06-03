@@ -15,11 +15,12 @@ export const loadSearchResults = async (query) => {
     const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
     const res = await fetch(searchQuery);
     const data = await res.json();
-    //console.log("data.items", data.items);
+    console.log("data.items", data.items);
 
     // load descriptions array
-    state.descriptions.length = 0; // reset array
-    state.descriptions.push(data.items.map(item => {
+    const descriptions = state.descriptions;
+    descriptions.length = 0; // reset array
+    descriptions.push(data.items.map(item => {
       let description = item.volumeInfo.description;
       return description ? description : "Description for this title is not available";
       // if (description) {
@@ -28,7 +29,7 @@ export const loadSearchResults = async (query) => {
       //   return "Description for this title is not available";
       // }
     }));
-    console.log("descriptions", state.descriptions);
+    console.log("descriptions", descriptions);
 
     state.books = data.items.map((item) => {
       const book = item.volumeInfo;

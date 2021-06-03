@@ -24,7 +24,8 @@ const controlSearchResults = async () => {
 // Wishlist
 const controlAddBookWishlist = (ISBN) => {
   let tryAdd = model.addBookWishlist(ISBN);
-  console.log(tryAdd);
+  //console.log(tryAdd);
+  console.log("ISBN added to wishlist:", ISBN);
   if (!tryAdd) return;
 
   wishlistView.render(model.state.wishlist);
@@ -38,7 +39,7 @@ const controlAddBookWishlist = (ISBN) => {
 };
 
 const controlDeleteBookWishlist = (ISBN) => {
-  console.log(ISBN);
+  console.log("ISBN deleted from wishlisht:", ISBN);
   let del = model.deleteBookWishlist(ISBN);
   if (!del) return;
   wishlistView.render(model.state.wishlist);
@@ -65,8 +66,14 @@ const controlGetDescriptionArray = () => {
 };
 
 const controlBookDescriptionToggleModal = () => {
- // return
-}
+  console.log("controlBookDescriptionToggleModal", "click");
+  bookDescriptionView.toggleModal();
+};
+
+const controlHideDescription = () => {
+  console.log("controlHideDescription", "click");
+  bookDescriptionView.closeModal();
+};
 
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
@@ -74,8 +81,10 @@ const init = () => {
   wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
   wishlistView.addHandlerShowWishListButton(controlWishListBtn);
   //bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
-  bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
+  //bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
   //bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
+  bookDescriptionView.addHandlerShowDescriptionButton(controlBookDescriptionToggleModal);
+  bookDescriptionView.addHandlerHideDescription(controlHideDescription);
 
   loadLocalStorage();
 };
