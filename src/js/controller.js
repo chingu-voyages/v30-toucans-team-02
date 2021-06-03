@@ -87,6 +87,7 @@ const init = () => {
   bookDescriptionView.addHandlerHideDescription(controlHideDescription);
 
   loadLocalStorage();
+  bookDescriptionView.showDescription();
 };
 
 init();

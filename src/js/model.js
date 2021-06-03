@@ -31,7 +31,7 @@ export const loadSearchResults = async (query) => {
     }));
     console.log("descriptions", descriptions);
 
-    state.books = data.items.map((item) => {
+    state.books = data.items.map((item, index) => {
       const book = item.volumeInfo;
       return {
         ISBN: book.industryIdentifiers[0].identifier,
@@ -39,6 +39,7 @@ export const loadSearchResults = async (query) => {
         ...(book.authors && {author: book.authors[0]}),
         ...(book.imageLinks && {img: book.imageLinks.thumbnail}),
         description: book.description,
+        index: index
       };
     });
     //console.log("state.books", state.books);
@@ -92,4 +93,5 @@ export const getDescriptionArray = () => {
   //console.log("getDescriptionArray", "getting the array")
   // const descriptions = state.books.map(item => item.volumeInfo.description);
   // return descriptions;
+  return state.descriptions;
 };
