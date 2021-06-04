@@ -75,6 +75,10 @@ const controlHideDescription = () => {
   bookDescriptionView.closeModal();
 };
 
+const controlShowDescription = () => {
+  bookDescriptionView.showDescription();
+}
+
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
@@ -85,9 +89,10 @@ const init = () => {
   //bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
   bookDescriptionView.addHandlerShowDescriptionButton(controlBookDescriptionToggleModal);
   bookDescriptionView.addHandlerHideDescription(controlHideDescription);
+  bookDescriptionView.addHandlerShowDescription(controlShowDescription);
 
   loadLocalStorage();
-  bookDescriptionView.showDescription();
+  // bookDescriptionView.showDescription();
 };
 
 init();

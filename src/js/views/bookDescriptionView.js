@@ -96,6 +96,10 @@ class BookDescriptionView {
     // modalCloseBtn.addEventListener("click", handler);
   }
 
+  addHandlerShowDescription(handler) {
+    handler();
+  }
+
   showDescription() {
     // put index into modal markup as data-index = ${index}
     // get index from data-index to get descriptions[index]
