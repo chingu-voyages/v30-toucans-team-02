@@ -15,7 +15,7 @@
 .flipcard {
   background-color: transparent;
   width: 200px;
-  height: 250px;
+  height: 300px;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   padding: 10px;
@@ -243,23 +243,43 @@
 }
 
 .wishlist {
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 2s, opacity 0.5s ease-in;
+  transition: visibility 2s, opacity 0.5s ease-in;
   width: 100%;
   position: fixed;
   bottom: 10px;
   right: 10px;
-  border: solid black;
+  border: solid thin black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 10px;
-  background-color: #ff8000;
+  background-color: rgba(255, 128, 0, 0.9);
+  border-radius: 7.9%;
+}
+
+.wishlist__book-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .wishlist__img-holder {
   position: relative;
+  margin: 10px;
+  width: 80px;
 }
 
 .wishlist__btn-delete {
@@ -271,7 +291,20 @@
 }
 
 .wishlist__img {
-  width: 80px;
+  border: solid thin black;
+  width: 100%;
+}
+
+.wishlist__img-holder:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.show-wishlist {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: visibility 2s, opacity 1s linear;
+  transition: visibility 2s, opacity 1s linear;
 }
 
 * {
@@ -308,16 +341,17 @@
 }
 
 .btn {
+  text-transform: uppercase;
   position: fixed;
   width: 100%;
-  max-width: 180px;
-  padding: 20px;
+  max-width: 150px;
+  padding: 17px;
   background-color: #ff8000;
   border: none;
   border-radius: 5px;
   bottom: 10px;
   right: 10px;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -383,20 +417,41 @@ section {
   padding-right: 10px;
 }
 
-@media screen and (max-width: 767px) {
-  section {
-    -ms-grid-columns: auto;
-        grid-template-columns: auto;
-  }
-  .search__input {
-    max-width: 300px;
-  }
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  section {
-    -ms-grid-columns: auto auto;
-        grid-template-columns: auto auto;
-  }
+.modal__content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.modal__btn-close {
+  color: #ff8000;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

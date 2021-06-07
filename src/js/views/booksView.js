@@ -45,7 +45,7 @@ class BookView {
         <div class="flipcard__back">
           <div class = "flipcard__backcard">
   
-            <div class ="info">
+            <div class="info" data-description=${book.description}>
               
               <i class="fas fa-info-circle fa-3x"></i>
             </div>

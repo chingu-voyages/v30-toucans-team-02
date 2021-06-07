@@ -1,7 +1,5 @@
 const renderCard = (data, index) => {
   const html = `
-     
-  
   <div class="flipcard">
     <div class="flipcard__inner">
       <div class="flipcard__front">
@@ -10,17 +8,15 @@ const renderCard = (data, index) => {
           <div class="flipcard__details">
             <p>${data.title}</p>
             <span class = "line"></span>
-
             <p class="subtitle">${data.authors[0]}</p>
           </div>
         </div>
       </div>
       <div class="flipcard__back">
         <div class = "flipcard__backcard">
-
           <div class ="info">
-            
-            <i class="fas fa-info-circle fa-3x"></i>
+         
+            <i class="fas fa-info-circle fa-3x nm"></i>
           </div>
           <div class = "add-to-read-list">
           <i id = "wishlist" data-index = ${index} class="fas fa-book-reader fa-2x"></i>
@@ -31,13 +27,18 @@ const renderCard = (data, index) => {
         
       </div>
     </div>
+   
 </div>
       
     
  `;
   return html;
 };
-
+// const modal = () => {
+//   const description = document.querySelector(".modal__description");
+//   description.returnValue = `${data.description}`;
+//   console.log(modal);
+// };
 // const renderCard = (data) => {
 //   const html = `
 

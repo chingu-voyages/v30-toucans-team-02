@@ -4,6 +4,7 @@ import wishlistView from "./views/wishlistView";
 
 import searchView from "./views/searchView";
 import wishList from "../wishList";
+import bookDescriptionView from "./views/BookDescriptionView";
 
 booksView.render(model.state.books);
 
@@ -21,10 +22,10 @@ const controlSearchResults = async () => {
 };
 
 // Wishlist
-
 const controlAddBookWishlist = (ISBN) => {
   let tryAdd = model.addBookWishlist(ISBN);
-  console.log(tryAdd);
+  //console.log(tryAdd);
+  console.log("ISBN added to wishlist:", ISBN);
   if (!tryAdd) return;
 
   wishlistView.render(model.state.wishlist);
@@ -38,7 +39,7 @@ const controlAddBookWishlist = (ISBN) => {
 };
 
 const controlDeleteBookWishlist = (ISBN) => {
-  console.log(ISBN);
+  console.log("ISBN deleted from wishlisht:", ISBN);
   let del = model.deleteBookWishlist(ISBN);
   if (!del) return;
   wishlistView.render(model.state.wishlist);
@@ -50,9 +51,32 @@ const controlWishListBtn = () => {
 
 const loadLocalStorage = () => {
   //getWishlist();
-  console.log("getWishlist()", model.getWishlist());
+  //console.log("getWishlist()", model.getWishlist());
   wishlistView.render(model.getWishlist());
   //getWishlist() ? this.render(getWishlist()) : [];
+};
+
+// Book description modal
+const controlBookDescriptionShow = () => {
+  console.log("loaded");
+};
+
+const controlGetDescriptionArray = () => {
+  return model.getDescriptionArray();
+};
+
+const controlBookDescriptionToggleModal = () => {
+  console.log("controlBookDescriptionToggleModal", "click");
+  bookDescriptionView.toggleModal();
+};
+
+const controlHideDescription = () => {
+  console.log("controlHideDescription", "click");
+  bookDescriptionView.closeModal();
+};
+
+const controlShowDescription = () => {
+  bookDescriptionView.showDescription();
 }
 
 const init = () => {
@@ -60,7 +84,15 @@ const init = () => {
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
   wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
   wishlistView.addHandlerShowWishListButton(controlWishListBtn);
+  //bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
+  //bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
+  //bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
+  bookDescriptionView.addHandlerShowDescriptionButton(controlBookDescriptionToggleModal);
+  bookDescriptionView.addHandlerHideDescription(controlHideDescription);
+  bookDescriptionView.addHandlerShowDescription(controlShowDescription);
+
   loadLocalStorage();
+  // bookDescriptionView.showDescription();
 };
 
 init();
