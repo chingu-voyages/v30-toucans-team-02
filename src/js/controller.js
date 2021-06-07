@@ -4,7 +4,7 @@ import wishlistView from "./views/wishlistView";
 
 import searchView from "./views/searchView";
 import wishList from "../wishList";
-import bookDescriptionView from "./views/BookDescriptionView";
+import bookDescriptionView from "./views/bookDescriptionView";
 
 booksView.render(model.state.books);
 
@@ -75,9 +75,13 @@ const controlHideDescription = () => {
   bookDescriptionView.closeModal();
 };
 
-const controlShowDescription = () => {
-  bookDescriptionView.showDescription();
-}
+const controlShowDescription = (ISBN) => {
+  console.log("ISBN controler", ISBN);
+  let description = model.getDescription(ISBN);
+  console.log(description);
+
+  bookDescriptionView.showDescription(description);
+};
 
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);
@@ -87,7 +91,9 @@ const init = () => {
   //bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
   //bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
   //bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
-  bookDescriptionView.addHandlerShowDescriptionButton(controlBookDescriptionToggleModal);
+  bookDescriptionView.addHandlerShowDescriptionButton(
+    controlBookDescriptionToggleModal
+  );
   bookDescriptionView.addHandlerHideDescription(controlHideDescription);
   bookDescriptionView.addHandlerShowDescription(controlShowDescription);
 

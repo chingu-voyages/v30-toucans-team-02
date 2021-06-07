@@ -20,15 +20,19 @@ export const loadSearchResults = async (query) => {
     // load descriptions array
     const descriptions = state.descriptions;
     descriptions.length = 0; // reset array
-    descriptions.push(data.items.map(item => {
-      let description = item.volumeInfo.description;
-      return description ? description : "Description for this title is not available";
-      // if (description) {
-      //   return description;
-      // } else {
-      //   return "Description for this title is not available";
-      // }
-    }));
+    descriptions.push(
+      data.items.map((item) => {
+        let description = item.volumeInfo.description;
+        return description
+          ? description
+          : "Description for this title is not available";
+        // if (description) {
+        //   return description;
+        // } else {
+        //   return "Description for this title is not available";
+        // }
+      })
+    );
     console.log("descriptions", descriptions);
 
     state.books = data.items.map((item, index) => {
@@ -36,10 +40,10 @@ export const loadSearchResults = async (query) => {
       return {
         ISBN: book.industryIdentifiers[0].identifier,
         title: book.title,
-        ...(book.authors && {author: book.authors[0]}),
-        ...(book.imageLinks && {img: book.imageLinks.thumbnail}),
+        ...(book.authors && { author: book.authors[0] }),
+        ...(book.imageLinks && { img: book.imageLinks.thumbnail }),
         description: book.description,
-        index: index
+        index: index,
       };
     });
     //console.log("state.books", state.books);
@@ -58,7 +62,9 @@ const findBook = (ISBN, msg) => {
 };
 
 export const getWishlist = () => {
-  state.wishlist = localStorage.getItem('books') ? JSON.parse(localStorage.getItem('books')) : [];
+  state.wishlist = localStorage.getItem("books")
+    ? JSON.parse(localStorage.getItem("books"))
+    : [];
   //console.log("wishlist", state.wishlist);
   return state.wishlist;
 };
@@ -69,14 +75,25 @@ export const addBookWishlist = (ISBN) => {
   }
   const book = state.books.find((i) => i.ISBN == ISBN);
   state.wishlist = [...state.wishlist, book];
-  localStorage.setItem('books', JSON.stringify(state.wishlist));
+  localStorage.setItem("books", JSON.stringify(state.wishlist));
   return true;
 };
 
 export const deleteBookWishlist = (ISBN) => {
   state.wishlist = state.wishlist.filter((book) => book.ISBN != ISBN);
-  localStorage.setItem('books', JSON.stringify(state.wishlist));
+  localStorage.setItem("books", JSON.stringify(state.wishlist));
   return true;
+};
+
+export const getDescription = (ISBN) => {
+  const info = state.books.find((i) => {
+    if (i.ISBN == ISBN) {
+      console.log(i.description);
+      return i.description;
+    }
+  });
+  console.log(info);
+  return info.description;
 };
 
 // export const descriptions = [

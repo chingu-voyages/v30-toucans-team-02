@@ -45,12 +45,16 @@ class BookView {
         <div class="flipcard__back">
           <div class = "flipcard__backcard">
   
-            <div class="info" data-description=${book.description}>
+            <div class="info" >
               
-              <i class="fas fa-info-circle fa-3x"></i>
+              <i id = "info"  data-index = ${
+                book.ISBN
+              } class="fas fa-info-circle fa-3x"></i>
             </div>
             <div class = "add-to-read-list">
-            <i id = "wishlist" data-index = ${book.ISBN} class="fas fa-book-reader fa-2x"></i>
+            <i id = "wishlist" data-index = ${
+              book.ISBN
+            } class="fas fa-book-reader fa-2x"></i>
               <p>Add to read list</p>
   
             </div>
