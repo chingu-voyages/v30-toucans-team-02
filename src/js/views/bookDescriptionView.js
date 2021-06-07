@@ -6,17 +6,17 @@ class BookDescriptionView {
       // console.log("handler", handler());
       handler();
 
-      // const getDescription = (description, index) => {
-      //     if (clearDescriptionResults) {
-      //         this.descriptionArray = [];
-      //         clearDescriptionResults = false;
-      //         this.descriptionArray.push(description);
-      //     } else {
-      //         this.descriptionArray.push(description);
-      //     }
+      const getDescription = (description, index) => {
+          if (clearDescriptionResults) {
+              this.descriptionArray = [];
+              clearDescriptionResults = false;
+              this.descriptionArray.push(description);
+          } else {
+              this.descriptionArray.push(description);
+          }
 
-      //     console.log(descriptionArray, index);
-      // };
+          console.log(descriptionArray, index);
+      };
   }
   
   addHandlerToggleModal(handler) {

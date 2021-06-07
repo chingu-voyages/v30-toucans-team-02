@@ -3,18 +3,18 @@ import controlBooks from "./js/controller";
 // controlBooks();
 
 import "./styles/style.scss";
-import getSearchResults from "./api";
+// import getSearchResults from "./api";
 import Logo from "./assets/images/logo.png";
-import wishList from "./wishList";
-import searchedBooks from "./searchedBooks";
-import renderWishlistBook from "./renderWishlistBook";
-import bookCard from "./bookCard";
-import api from "./api";
-import renderCard from "./bookCard";
+// import wishList from "./wishList";
+// import searchedBooks from "./searchedBooks";
+// import renderWishlistBook from "./renderWishlistBook";
+// import bookCard from "./bookCard";
+// import api from "./api";
+// import renderCard from "./bookCard";
 const mainLogo = document.querySelector(".search__logo");
 mainLogo.src = Logo;
 
-const searchInput = document.getElementById("search-input");
+// const searchInput = document.getElementById("search-input");
 
 // // Event Listener
 // searchInput.addEventListener("keypress", (e) => {

@@ -1,4 +1,4 @@
-const functionOne = () => "ONE";
-const functionTwo = () => "TWO";
+// const functionOne = () => "ONE";
+// const functionTwo = () => "TWO";
 
-export { functionOne, functionTwo };
+// export { functionOne, functionTwo };
