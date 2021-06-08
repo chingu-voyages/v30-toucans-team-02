@@ -28,8 +28,9 @@
     transition: 0.3s;
     img {
       border: solid $primary-color;
-      height: 100%;
+      min-height: 100%;
       width: 100%;
+      // border: solid red;
     }
     .flipcard__details {
       @include flex;

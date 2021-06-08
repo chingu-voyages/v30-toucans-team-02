@@ -13,7 +13,7 @@
   align-items: center;
   padding: 10px;
   background-color: rgba(255, 128, 0, 0.9);
-  border-radius: 7.9%;
+  // border-radius: 7.9%;
   &__book-container {
     display: flex;
   }
@@ -24,38 +24,30 @@
   }
   &__btn-delete {
     position: absolute;
-    bottom: 4px;
+    border: solid thin $primary-color;
+    border-radius: 3px;
+    background: $bg-color;
+    bottom: 0px;
     right: 0px;
     width: 20px;
-    color: $blue-color;
+    color: white;
+    opacity: 0.8;
   }
   &__img {
     border: solid thin $primary-color;
+    border-radius: 3px;
+    min-height: 100%;
     width: 100%;
   }
   &__img-holder:hover {
     transform: scale(1.05);
   }
-  &__btn {
-    @include fixed;
-    max-width: 140px;
-    padding: 18px;
-    background-color: $bg-color;
-    border: none;
-    border-radius: 5px;
-    bottom: 10px;
-    right: 10px;
-    font-size: 15px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-    border: 1px solid $primary-color;
-    &:hover {
-      font-size: 16px;
-    }
-  }
   &__icon {
-    font-size: 15px;
+    font-size: 50px;
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    cursor: pointer;
   }
 }
 .show-wishlist {

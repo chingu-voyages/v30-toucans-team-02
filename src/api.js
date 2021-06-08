@@ -1,44 +1,42 @@
-import renderCard from "./bookCard";
-import searchedBooks from "./searchedBooks";
+// import renderCard from "./bookCard";
+// import searchedBooks from "./searchedBooks";
+// import getDescription from "./index";
 
-// Google Books API
-const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
-const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
+// // Google Books API
+// const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
+// const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 
-async function getSearchResults() {
-  const bookCardContainer = document.querySelector(".container");
-  bookCardContainer.innerHTML = "";
-  const searchValue = document
-    .getElementById("search-input")
-    .value.split(" ")
-    .join("+");
-  const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}&maxResults=25`;
+// function getSearchResults() {
+//   const bookCardContainer = document.querySelector(".container");
+//   bookCardContainer.innerHTML = "";
 
-  try {
-    const response = await fetch(searchQuery);
-    //console.log("response", response);
+//   const searchValue = document
+//     .getElementById("search-input")
+//     .value.split(" ")
+//     .join("+");
+//   const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${searchValue}&key=${API_KEY}&maxResults=25`;
+//   let searchResults;
+//   fetch(searchQuery)
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((data) => (searchResults = data.items))
 
-    if (!response.ok) {
-      const message = `An error has occurred: ${response.status}`;
-      throw new Error(message);
-    }
+//     .then((searchResults) => {
+//       searchedBooks.addSearch(searchResults);
 
-    const data = await response.json();
-    //console.log("data as response.json()", data);
-    const books = data.items;
-    searchedBooks.addSearch(books);
+//       searchResults.forEach((item, index) => {
+//         const book = item.volumeInfo;
+//         const html = renderCard(book, index);
+//         const des = getDescription(book.description, index);
 
-    books.forEach((item, index) => {
-      const book = item.volumeInfo;
-      const html = renderCard(book, index);
-      bookCardContainer.insertAdjacentHTML("beforeend", html);
-    });
+//         // bookCardContainer.insertAdjacentHTML("beforeend", html);
+//       });
+//     })
 
-    //return data;
-  } catch (e) {
-    console.log(e.message);
-    console.log(e.details);
-  }
-}
+//     .catch((err) => {
+//       //console.log("error fetch");
+//     });
+// }
 
-export default getSearchResults;
+// export default getSearchResults;
