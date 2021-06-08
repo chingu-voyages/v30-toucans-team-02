@@ -8,7 +8,6 @@ class WishlistView {
   #errorMessage = "We could not find any books. Please try another search!";
 
   render(data) {
-    //console.log("data", data);
     this.#data = data;
     this.#clear();
     data.forEach((book) => {
@@ -32,6 +31,10 @@ class WishlistView {
     return this.#wishlistShow;
   }
 
+  updateLabel(msg) {
+    this.#parentElement.querySelector(".wishlist__book-title").innerHTML = msg;
+  }
+
   addHandlerDeleteBookWishlist(handler) {
     this.#parentElement.addEventListener("click", (e) => {
       if (e.target.id == "delete-card-wishlist") {
@@ -47,7 +50,7 @@ class WishlistView {
       handler();
     });
   }
-  
+
   #generateMarkup(book) {
     const html = `
 

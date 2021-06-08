@@ -29,6 +29,7 @@ const controlAddBookWishlist = (ISBN) => {
   if (!tryAdd) return;
 
   wishlistView.render(model.state.wishlist);
+  updateWishListLabel();
 
   if (wishlistView.wishlistIsOpen() == false) {
     wishlistView.toggleShow();
@@ -38,15 +39,27 @@ const controlAddBookWishlist = (ISBN) => {
   }
 };
 
+const updateWishListLabel = () => {
+  let wishlistBooks = model.getWishlist();
+
+  if (wishlistBooks.length == 0) {
+    wishlistView.updateLabel("Wishlist Empty");
+  } else {
+    wishlistView.updateLabel(" ");
+  }
+};
+
 const controlDeleteBookWishlist = (ISBN) => {
   console.log("ISBN deleted from wishlisht:", ISBN);
   let del = model.deleteBookWishlist(ISBN);
   if (!del) return;
   wishlistView.render(model.state.wishlist);
 };
+updateWishListLabel();
 
 const controlWishListBtn = () => {
   wishlistView.toggleShow();
+  updateWishListLabel();
 };
 
 const loadLocalStorage = () => {
