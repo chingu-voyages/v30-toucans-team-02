@@ -37,8 +37,11 @@ export const loadSearchResults = async (query) => {
 
     state.books = data.items.map((item, index) => {
       const book = item.volumeInfo;
+
       return {
-        ISBN: book.industryIdentifiers[0].identifier,
+        ISBN: book.hasOwnProperty("industryIdentifiers")
+          ? book.industryIdentifiers[0].identifier
+          : book.id,
         title: book.title,
         ...(book.authors && { author: book.authors[0] }),
         ...(book.imageLinks && { img: book.imageLinks.thumbnail }),
@@ -46,7 +49,7 @@ export const loadSearchResults = async (query) => {
         index: index,
       };
     });
-    //console.log("state.books", state.books);
+    console.log("state.books", state.books);
   } catch (err) {
     throw err;
   }
@@ -87,7 +90,7 @@ export const deleteBookWishlist = (ISBN) => {
 
 export const getDescription = (ISBN) => {
   const info = state.books.find((i) => i.ISBN == ISBN);
-  if (info) {
+  if (info && info.description != undefined) {
     return info.description;
   } else {
     return "No description found.";

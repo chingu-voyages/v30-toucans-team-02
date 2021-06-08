@@ -105,7 +105,7 @@ class BookDescriptionView {
   addHandlerShowDescription(handler) {
     this.#parentElement.addEventListener("click", (e) => {
       if (e.target.id == "info") {
-        console.log("test");
+        // console.log("test");
         let ISBN = e.target.getAttribute("data-index");
 
         handler(ISBN);
@@ -114,7 +114,7 @@ class BookDescriptionView {
   }
 
   showDescription(info) {
-    console.log("view info", info);
+    // console.log("view info", info);
     // put index into modal markup as data-index = ${index}
     // get index from data-index to get descriptions[index]
     // add descriptions[index] to modal markup in .modal__description <p> tag
