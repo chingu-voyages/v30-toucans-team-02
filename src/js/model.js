@@ -86,29 +86,10 @@ export const deleteBookWishlist = (ISBN) => {
 };
 
 export const getDescription = (ISBN) => {
-  const info = state.books.find((i) => {
-    if (i.ISBN == ISBN) {
-      console.log(i.description);
-      return i.description;
-    }
-  });
-  console.log(info);
-  return info.description;
-};
-
-// export const descriptions = [
-//   {
-//     description: "A short story about baseball"
-//   },
-//   {
-//     description: "A novella about the beach"
-//   }
-// ];
-
-// Book description
-export const getDescriptionArray = () => {
-  //console.log("getDescriptionArray", "getting the array")
-  // const descriptions = state.books.map(item => item.volumeInfo.description);
-  // return descriptions;
-  return state.descriptions;
+  const info = state.books.find((i) => i.ISBN == ISBN);
+  if (info) {
+    return info.description;
+  } else {
+    return "No description found.";
+  }
 };
