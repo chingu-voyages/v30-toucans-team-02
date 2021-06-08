@@ -68,7 +68,8 @@ class BookDescriptionView {
 
   toggleModal() {
     const modal = document.querySelector(".modal");
-    modal.style.display = "block";
+    modal.classList.toggle("show-modal");
+    // modal.style.display = "block";
     // button.forEach((btn, index) => {
     //   // modal.setAttribute("data-key", index);
     //   btn.addEventListener("click", () => {
@@ -76,7 +77,8 @@ class BookDescriptionView {
 
   closeModal() {
     const modal = document.querySelector(".modal");
-    modal.style.display = "none";
+    modal.classList.toggle("show-modal");
+    // modal.style.display = "none";
   }
 
   addHandlerToggleButton(handler) {

@@ -217,7 +217,6 @@
           align-items: center;
   padding: 10px;
   background-color: rgba(255, 128, 0, 0.9);
-  border-radius: 7.9%;
 }
 
 .wishlist__book-container {
@@ -272,7 +271,10 @@
 }
 
 .modal {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 1s, opacity 0.5s ease-in;
+  transition: visibility 1s, opacity 0.5s ease-in;
   position: fixed;
   z-index: 1;
   padding-top: 100px;
@@ -299,6 +301,14 @@
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  -webkit-transition: visibility 1s, opacity 1s linear;
+  transition: visibility 1s, opacity 1s linear;
 }
 
 * {
