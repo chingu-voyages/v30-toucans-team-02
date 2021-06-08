@@ -8,6 +8,10 @@ import bookDescriptionView from "./views/bookDescriptionView";
 
 booksView.render(model.state.books);
 
+// ====================================================================
+// Control Search results
+// ====================================================================
+
 const controlSearchResults = async () => {
   try {
     const query = searchView.getQuery();
@@ -21,11 +25,12 @@ const controlSearchResults = async () => {
   }
 };
 
-// Wishlist
+// ====================================================================
+// Control Wishlist
+// ====================================================================
+
 const controlAddBookWishlist = (ISBN) => {
   let tryAdd = model.addBookWishlist(ISBN);
-  //console.log(tryAdd);
-  console.log("ISBN added to wishlist:", ISBN);
   if (!tryAdd) return;
 
   wishlistView.render(model.state.wishlist);
@@ -50,7 +55,6 @@ const updateWishListLabel = () => {
 };
 
 const controlDeleteBookWishlist = (ISBN) => {
-  console.log("ISBN deleted from wishlisht:", ISBN);
   let del = model.deleteBookWishlist(ISBN);
   if (!del) return;
   wishlistView.render(model.state.wishlist);
@@ -63,18 +67,20 @@ const controlWishListBtn = () => {
 };
 
 const controlWishListImgInfo = (ISBN) => {
-  console.log("controler", ISBN);
-  controlShowDescription(ISBN);
+  const description = model.getDescriptionWishlist(ISBN);
+
+  bookDescriptionView.showDescription(description);
+  bookDescriptionView.toggleModal();
 };
 
 const loadLocalStorage = () => {
-  //getWishlist();
-  //console.log("getWishlist()", model.getWishlist());
   wishlistView.render(model.getWishlist());
-  //getWishlist() ? this.render(getWishlist()) : [];
 };
 
-// Book description modal
+// ====================================================================
+// Control Discription
+// ====================================================================
+
 const controlBookDescriptionShow = () => {
   console.log("loaded");
 };
@@ -96,11 +102,16 @@ const controlHideDescription = () => {
 const controlShowDescription = (ISBN) => {
   // console.log("ISBN controler", ISBN);
   let description = model.getDescription(ISBN);
-  console.log(description);
+  console.log("discription", description);
+  console.log(model.getWishlist());
 
   bookDescriptionView.showDescription(description);
   bookDescriptionView.toggleModal();
 };
+
+// ====================================================================
+// Init and view handlers
+// ====================================================================
 
 const init = () => {
   searchView.addHandlerSearch(controlSearchResults);

@@ -7,8 +7,10 @@
   height: 300px;
   perspective: 1000px;
   padding: 10px;
+
   &__inner {
     @include relative;
+
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -20,6 +22,7 @@
   }
   &__card {
     @include flex;
+
     width: 100%;
     height: 100%;
     align-content: center;
@@ -28,8 +31,9 @@
     transition: 0.3s;
     img {
       border: solid $primary-color;
-      height: 100%;
+      min-height: 100%;
       width: 100%;
+      // border: solid red;
     }
     .flipcard__details {
       @include flex;
