@@ -44,6 +44,17 @@ class WishlistView {
     });
   }
 
+  addHandlerShowInformation(handler) {
+    this.#parentElement.addEventListener("click", (e) => {
+      if (e.target.id == "wishlist-img") {
+        console.log("YES");
+        let ISBN = e.target.getAttribute("data-index");
+        console.log(ISBN);
+        handler(ISBN);
+      }
+    });
+  }
+
   addHandlerShowWishListButton(handler) {
     document.querySelector(".btn__wishlist").addEventListener("click", (e) => {
       this.#wishlistShow = !this.#wishlistShow;

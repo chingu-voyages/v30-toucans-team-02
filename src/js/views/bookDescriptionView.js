@@ -1,7 +1,7 @@
 class BookDescriptionView {
   #parentElement = document.querySelector(".container");
 
-  //Modal
+  Modal;
   addHandlerGetDescriptionArray(handler) {
     // console.log("handler", handler());
     handler();

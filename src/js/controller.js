@@ -62,6 +62,11 @@ const controlWishListBtn = () => {
   updateWishListLabel();
 };
 
+const controlWishListImgInfo = (ISBN) => {
+  console.log("controler", ISBN);
+  controlShowDescription(ISBN);
+};
+
 const loadLocalStorage = () => {
   //getWishlist();
   //console.log("getWishlist()", model.getWishlist());
@@ -79,8 +84,8 @@ const controlGetDescriptionArray = () => {
 };
 
 const controlBookDescriptionToggleModal = () => {
-  console.log("controlBookDescriptionToggleModal", "click");
-  bookDescriptionView.toggleModal();
+  // console.log("controlBookDescriptionToggleModal", "click");
+  // bookDescriptionView.toggleModal();
 };
 
 const controlHideDescription = () => {
@@ -89,11 +94,12 @@ const controlHideDescription = () => {
 };
 
 const controlShowDescription = (ISBN) => {
-  console.log("ISBN controler", ISBN);
+  // console.log("ISBN controler", ISBN);
   let description = model.getDescription(ISBN);
   console.log(description);
 
   bookDescriptionView.showDescription(description);
+  bookDescriptionView.toggleModal();
 };
 
 const init = () => {
@@ -101,9 +107,10 @@ const init = () => {
   booksView.addHandlerAddBookWishlist(controlAddBookWishlist);
   wishlistView.addHandlerDeleteBookWishlist(controlDeleteBookWishlist);
   wishlistView.addHandlerShowWishListButton(controlWishListBtn);
-  //bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
-  //bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
-  //bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
+  wishlistView.addHandlerShowInformation(controlWishListImgInfo);
+  // bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
+  // bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
+  // bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
   bookDescriptionView.addHandlerShowDescriptionButton(
     controlBookDescriptionToggleModal
   );

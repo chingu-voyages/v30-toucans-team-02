@@ -96,3 +96,12 @@ export const getDescription = (ISBN) => {
     return "No description found.";
   }
 };
+
+export const getDescriptionWishlist = (ISBN) => {
+  const info = state.wishlist.find((i) => i.ISBN == ISBN);
+  if (info && info.description != undefined) {
+    return info.description;
+  } else {
+    return "No description found.";
+  }
+};
