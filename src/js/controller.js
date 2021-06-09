@@ -85,9 +85,9 @@ const controlBookDescriptionShow = () => {
   console.log("loaded");
 };
 
-const controlGetDescriptionArray = () => {
-  return model.getDescriptionArray();
-};
+// const controlGetDescriptionArray = () => {
+//   return model.getDescriptionArray();
+// };
 
 const controlBookDescriptionToggleModal = () => {
   // console.log("controlBookDescriptionToggleModal", "click");

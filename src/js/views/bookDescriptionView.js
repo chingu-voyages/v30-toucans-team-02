@@ -86,16 +86,18 @@ class BookDescriptionView {
   }
 
   addHandlerHideDescription(handler) {
-    document.getElementById("myModal").addEventListener("click", (e) => {
-      console.log("addHandlerHideDescription event", e);
-      if (
-        e.target.className.includes("modal__btn-close") ||
-        e.target.id === "myModal"
-      ) {
-        console.log("modal__btn-close", "click");
-        handler();
-      }
-    });
+    document
+      .querySelector(".modal__btn-close")
+      .addEventListener("click", (e) => {
+        console.log("addHandlerHideDescription event", e);
+        if (
+          e.target.className.includes("modal__btn-close") ||
+          e.target.id === "myModal"
+        ) {
+          console.log("modal__btn-close", "click");
+          handler();
+        }
+      });
     // const modalCloseBtn = document.querySelector(".modal__btn-close");
     // modalCloseBtn.addEventListener("click", handler);
   }
