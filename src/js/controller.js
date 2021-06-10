@@ -76,7 +76,7 @@ const loadLocalStorage = () => {
 };
 
 // ====================================================================
-// Control Discription
+// Control Description
 // ====================================================================
 
 const controlBookDescriptionShow = () => {
