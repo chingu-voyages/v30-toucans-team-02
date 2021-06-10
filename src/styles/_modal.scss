@@ -21,12 +21,18 @@
     border: 1px solid #888;
     width: 80%;
   }
+  p {
+    padding: 10px 10px 10px 0px;
+  }
   &__btn-close {
     color: $bg-color;
     float: right;
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+  }
+  &__google {
+    display: none;
   }
 }
 

@@ -92,17 +92,17 @@ export const deleteBookWishlist = (ISBN) => {
 export const getDescription = (ISBN) => {
   const info = state.books.find((i) => i.ISBN == ISBN);
   if (info && info.description != undefined) {
-    return info.description;
+    return { title: info.title, description: info.description };
   } else {
-    return "No description found.";
+    return { title: info.title, description: "No description found." };
   }
 };
 
 export const getDescriptionWishlist = (ISBN) => {
   const info = state.wishlist.find((i) => i.ISBN == ISBN);
   if (info && info.description != undefined) {
-    return info.description;
+    return { title: info.title, description: info.description };
   } else {
-    return "No description found.";
+    return { title: info.title, description: "No description found." };
   }
 };

@@ -116,13 +116,17 @@ class BookDescriptionView {
   }
 
   showDescription(info) {
+    console.log("In VIEW", info);
     // console.log("view info", info);
     // put index into modal markup as data-index = ${index}
     // get index from data-index to get descriptions[index]
     // add descriptions[index] to modal markup in .modal__description <p> tag
-    const description = info;
+    const title = info.title;
+    const description = info.description;
     // "All seven eBooks in the multi-award winning, internationally bestselling Harry Potter series, available as one download with stunning cover art by Olly Moss. Enjoy the stories that have captured the imagination of millions worldwide. Having now become classics of our time, the Harry Potter ebooks never fail to bring comfort and escapism to readers of all ages. With its message of hope, belonging and the enduring power of truth and love, the story of the Boy Who Lived continues to delight generations of new readers.";
+    document.querySelector(".modal__title").innerText = title;
     document.querySelector(".modal__description").innerText = description;
+    document.querySelector(".modal__google").value = `Buy ${title}`;
     //this.#parentElement.insertAdjacentHTML("beforeend", markup);
   }
 }

@@ -35,7 +35,7 @@ class BookView {
           <div class="flipcard__card">
             <img  src="${book.img}" />
             <div class="flipcard__details">
-              <p>${book.title}</p>
+              <p><b>${book.title}</b></p>
               <span class = "line"></span>
   
               <p class="subtitle">${book.author ? book.author : ""}</p>

@@ -40,8 +40,9 @@
         @include paragraph;
       }
       .subtitle {
+        @include paragraph;
         text-align: center;
-        font-size: 13px;
+        // font-size: 13px;
         padding: 3px;
       }
       span {
