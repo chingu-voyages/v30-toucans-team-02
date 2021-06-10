@@ -75,6 +75,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new Dotenv(),
+    // new Dotenv({
+    //   systemvars: true,
+    // }),
+    new Dotenv()
   ],
+  env: {
+    GOOGLE_BOOKS_API_KEY: process.env.GOOGLE_BOOKS_API_KEY
+  },
 };
