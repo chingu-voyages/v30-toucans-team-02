@@ -89,10 +89,10 @@ const controlBookDescriptionShow = () => {
 //   return model.getDescriptionArray();
 // };
 
-const controlBookDescriptionToggleModal = () => {
-  // console.log("controlBookDescriptionToggleModal", "click");
-  // bookDescriptionView.toggleModal();
-};
+// const controlBookDescriptionToggleModal = () => {
+//   // console.log("controlBookDescriptionToggleModal", "click");
+//   // bookDescriptionView.toggleModal();
+// };
 
 const controlHideDescription = () => {
   console.log("controlHideDescription", "click");
@@ -122,9 +122,9 @@ const init = () => {
   // bookDescriptionView.addHandlerToggleButton(controlBookDescriptionShow);
   // bookDescriptionView.addHandlerToggleModal(controlBookDescriptionToggleModal);
   // bookDescriptionView.addHandlerGetDescriptionArray(controlGetDescriptionArray);
-  bookDescriptionView.addHandlerShowDescriptionButton(
-    controlBookDescriptionToggleModal
-  );
+  // bookDescriptionView.addHandlerShowDescriptionButton(
+  //   controlBookDescriptionToggleModal
+  // );
   bookDescriptionView.addHandlerHideDescription(controlHideDescription);
   bookDescriptionView.addHandlerShowDescription(controlShowDescription);
 

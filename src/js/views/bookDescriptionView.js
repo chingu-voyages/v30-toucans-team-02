@@ -87,7 +87,8 @@ class BookDescriptionView {
 
   addHandlerHideDescription(handler) {
     document
-      .querySelector(".modal__btn-close")
+      // .querySelector(".modal__btn-close")
+      .getElementById("myModal")
       .addEventListener("click", (e) => {
         console.log("addHandlerHideDescription event", e);
         if (
