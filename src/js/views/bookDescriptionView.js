@@ -46,10 +46,6 @@ class BookDescriptionView {
     // modal.style.display = "none";
   }
 
-  // addHandlerToggleButton(handler) {
-  //   console.log("addHandlerToggleButton in view:", "toggled");
-  // }
-
   addHandlerHideDescription(handler) {
     document
       // .querySelector(".modal__btn-close")

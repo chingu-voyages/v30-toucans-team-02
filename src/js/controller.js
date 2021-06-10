@@ -79,10 +79,6 @@ const loadLocalStorage = () => {
 // Control Description
 // ====================================================================
 
-// const controlBookDescriptionShow = () => {
-//   console.log("loaded");
-// };
-
 const controlHideDescription = () => {
   //console.log("controlHideDescription", "click");
   bookDescriptionView.closeModal();
