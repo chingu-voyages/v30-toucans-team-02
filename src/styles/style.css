@@ -159,6 +159,7 @@
   color: #0fabdf;
   -webkit-transform: scale(1.1);
           transform: scale(1.1);
+  cursor: pointer;
 }
 
 #search-input {
@@ -221,10 +222,25 @@
   background-color: rgba(255, 128, 0, 0.9);
 }
 
+@media screen and (max-width: 767px) {
+  .wishlist {
+    left: 0;
+  }
+}
+
 .wishlist__book-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media screen and (max-width: 767px) {
+  .wishlist__book-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .wishlist__img-holder {
@@ -243,6 +259,7 @@
   width: 20px;
   color: white;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .wishlist__img {
@@ -295,6 +312,8 @@
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  border: 1px solid #ff8000;
+  border-radius: 4px;
 }
 
 .modal p {
