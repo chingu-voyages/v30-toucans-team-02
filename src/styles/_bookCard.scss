@@ -3,10 +3,11 @@
 
 .flipcard {
   background-color: transparent;
-  width: 200px;
+  width: 225px;
   height: 300px;
   perspective: 1000px;
   padding: 10px;
+  margin-bottom: 20px;
   &__inner {
     @include relative;
     text-align: center;
@@ -34,10 +35,16 @@
     }
     .flipcard__details {
       @include flex;
+      width: 100%;
       justify-items: center;
       align-self: center;
+      // border: solid black;
+
       p {
         @include paragraph;
+        // border: solid black;
+
+        min-height: 40px;
       }
       .subtitle {
         @include paragraph;
@@ -82,6 +89,10 @@
       }
     }
   }
+}
+
+.bookTitle {
+  // border: solid yellow;
 }
 
 .flipcard:hover .flipcard__inner {

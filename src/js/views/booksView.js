@@ -29,14 +29,14 @@ class BookView {
     console.log(book);
     let bookTitle = book.title.split(" ");
     // console.log(bookTitle);
-    if (bookTitle.length > 5) {
+    if (bookTitle.length > 7) {
       console.log(bookTitle.slice(0, 5));
       console.log(bookTitle.slice(0, 5).join(" ") + "...");
-
-      // let bookTitle = bookTitle.slice(0, 3).join() + "....";
+      bookTitle = bookTitle.slice(0, 7).join(" ") + "...";
     } else {
-      // let bookTitle = bookTitle.join();
+      bookTitle = bookTitle.join(" ");
     }
+    // let bookTitle = bookTitle.join();
 
     const html = `
      
@@ -47,7 +47,7 @@ class BookView {
           <div class="flipcard__card">
             <img  src="${book.img}" />
             <div class="flipcard__details">
-              <p><b>${book.title}</b></p>
+              <div class = "bookTitle" ><p><b>${bookTitle}</b></p></div>
               <span class = "line"></span>
   
               <p class="subtitle">${book.author ? book.author : ""}</p>
