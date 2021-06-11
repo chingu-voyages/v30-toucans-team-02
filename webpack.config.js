@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 module.exports = {
   //index.js into ./dist
@@ -78,6 +79,7 @@ module.exports = {
     // new Dotenv({
     //   systemvars: true,
     // }),
-    new Dotenv()
+    new Dotenv(),
+    new FaviconsWebpackPlugin("src/assets/images/favicon.ico"),
   ],
 };
