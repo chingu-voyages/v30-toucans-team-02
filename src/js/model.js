@@ -1,5 +1,5 @@
 import { GOOGLE_BOOKS_API_URL, API_KEY } from "./config";
-
+import bookImg from "../assets/images/book.jpeg";
 export const state = {
   books: [],
   wishlist: [],
@@ -15,7 +15,8 @@ export const loadSearchResults = async (query) => {
     const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
     const res = await fetch(searchQuery);
     const data = await res.json();
-    //console.log("data.items", data.items);
+
+    console.log("data.items", data.items);
 
     // load descriptions array
     const descriptions = state.descriptions;
@@ -39,13 +40,17 @@ export const loadSearchResults = async (query) => {
           : book.id,
         title: book.title,
         ...(book.authors && { author: book.authors[0] }),
-        ...(book.imageLinks && { img: book.imageLinks.thumbnail }),
+        // ...(book.imageLinks && { img: book.imageLinks.thumbnail }),
+        img: book.hasOwnProperty("imageLinks")
+          ? book.imageLinks.thumbnail
+          : bookImg,
         description: book.description,
         index: index,
       };
     });
-    //console.log("state.books", state.books);
+    console.log("state.books", state.books);
   } catch (err) {
+    console.log(err);
     throw err;
   }
 };
@@ -62,6 +67,7 @@ const findBook = (ISBN, msg) => {
 };
 
 export const getWishlist = () => {
+  state.wishlist = state.wishlist;
   state.wishlist = localStorage.getItem("books")
     ? JSON.parse(localStorage.getItem("books"))
     : [];

@@ -26,6 +26,18 @@ class BookView {
   }
 
   #generateMarkup(book) {
+    console.log(book);
+    let bookTitle = book.title.split(" ");
+    // console.log(bookTitle);
+    if (bookTitle.length > 5) {
+      console.log(bookTitle.slice(0, 5));
+      console.log(bookTitle.slice(0, 5).join(" ") + "...");
+
+      // let bookTitle = bookTitle.slice(0, 3).join() + "....";
+    } else {
+      // let bookTitle = bookTitle.join();
+    }
+
     const html = `
      
   

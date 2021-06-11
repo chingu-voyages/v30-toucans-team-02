@@ -234,15 +234,6 @@
   display: flex;
 }
 
-@media screen and (max-width: 767px) {
-  .wishlist__book-container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-}
-
 .wishlist__img-holder {
   position: relative;
   margin: 10px;

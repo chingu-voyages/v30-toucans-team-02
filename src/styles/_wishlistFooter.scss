@@ -3,6 +3,8 @@
 
 .wishlist {
   @include flex;
+  // display: flex;
+  // flex-direction: row;
   @include fixed;
   visibility: hidden;
   opacity: 0;
@@ -20,7 +22,7 @@
   &__book-container {
     display: flex;
     @media screen and (max-width: 767px) {
-      flex-direction: column;
+      // flex-direction: column;
     }
   }
   &__img-holder {
