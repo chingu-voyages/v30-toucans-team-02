@@ -79,6 +79,10 @@ export const addBookWishlist = (ISBN) => {
   if (findBook(ISBN, `'This book is already in the wishlist.`)) {
     return false;
   }
+  if (state.wishlist.length > 4) {
+    alert("You can only have 5 books in the read list.");
+    return false;
+  }
   const book = state.books.find((i) => i.ISBN == ISBN);
   state.wishlist = [...state.wishlist, book];
   localStorage.setItem("books", JSON.stringify(state.wishlist));
