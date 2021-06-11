@@ -16,8 +16,6 @@ export const loadSearchResults = async (query) => {
     const res = await fetch(searchQuery);
     const data = await res.json();
 
-    console.log("data.items", data.items);
-
     // load descriptions array
     const descriptions = state.descriptions;
     descriptions.length = 0; // reset array
@@ -29,7 +27,6 @@ export const loadSearchResults = async (query) => {
           : "Description for this title is not available";
       })
     );
-    //console.log("descriptions", descriptions);
 
     state.books = data.items.map((item, index) => {
       const book = item.volumeInfo;
@@ -48,9 +45,7 @@ export const loadSearchResults = async (query) => {
         index: index,
       };
     });
-    console.log("state.books", state.books);
   } catch (err) {
-    console.log(err);
     throw err;
   }
 };
@@ -71,7 +66,7 @@ export const getWishlist = () => {
   state.wishlist = localStorage.getItem("books")
     ? JSON.parse(localStorage.getItem("books"))
     : [];
-  //console.log("wishlist", state.wishlist);
+
   return state.wishlist;
 };
 

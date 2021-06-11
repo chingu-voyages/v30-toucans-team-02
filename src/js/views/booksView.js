@@ -26,17 +26,13 @@ class BookView {
   }
 
   #generateMarkup(book) {
-    console.log(book);
     let bookTitle = book.title.split(" ");
-    // console.log(bookTitle);
+
     if (bookTitle.length > 7) {
-      console.log(bookTitle.slice(0, 5));
-      console.log(bookTitle.slice(0, 5).join(" ") + "...");
       bookTitle = bookTitle.slice(0, 7).join(" ") + "...";
     } else {
       bookTitle = bookTitle.join(" ");
     }
-    // let bookTitle = bookTitle.join();
 
     const html = `
      

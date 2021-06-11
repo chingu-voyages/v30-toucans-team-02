@@ -3,7 +3,6 @@ class BookDescriptionView {
 
   Modal;
   addHandlerGetDescriptionArray(handler) {
-    // console.log("handler", handler());
     handler();
 
     const getDescription = (description, index) => {
@@ -14,8 +13,6 @@ class BookDescriptionView {
       } else {
         this.descriptionArray.push(description);
       }
-
-      //console.log(descriptionArray, index);
     };
   }
 
@@ -27,9 +24,7 @@ class BookDescriptionView {
 
   addHandlerShowDescriptionButton(handler) {
     this.#parentElement.addEventListener("click", (e) => {
-      //console.log("event", e);
       if (e.target.className.includes("fa-info-circle")) {
-        //console.log("fa-info-circle", "click");
         handler();
       }
     });
@@ -43,23 +38,17 @@ class BookDescriptionView {
   closeModal() {
     const modal = document.querySelector(".modal");
     modal.classList.toggle("show-modal");
-    // modal.style.display = "none";
   }
 
   addHandlerHideDescription(handler) {
-    document
-      // .querySelector(".modal__btn-close")
-      .getElementById("myModal")
-      .addEventListener("click", (e) => {
-        //console.log("addHandlerHideDescription event", e);
-        if (
-          e.target.className.includes("modal__btn-close") ||
-          e.target.id === "myModal"
-        ) {
-          //console.log("modal__btn-close", "click");
-          handler();
-        }
-      });
+    document.getElementById("myModal").addEventListener("click", (e) => {
+      if (
+        e.target.className.includes("modal__btn-close") ||
+        e.target.id === "myModal"
+      ) {
+        handler();
+      }
+    });
   }
 
   addHandlerShowDescription(handler) {

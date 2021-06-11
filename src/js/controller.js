@@ -80,15 +80,11 @@ const loadLocalStorage = () => {
 // ====================================================================
 
 const controlHideDescription = () => {
-  //console.log("controlHideDescription", "click");
   bookDescriptionView.closeModal();
 };
 
 const controlShowDescription = (ISBN) => {
-  // console.log("ISBN controler", ISBN);
   let description = model.getDescription(ISBN);
-  //console.log("description", description);
-  //console.log(model.getWishlist());
 
   bookDescriptionView.showDescription(description);
   bookDescriptionView.toggleModal();
