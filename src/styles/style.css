@@ -147,6 +147,7 @@
 
 .flipcard__backcard .add-to-read-list p {
   font-size: 12px;
+  padding: 10px;
 }
 
 .flipcard:hover .flipcard__inner {
@@ -238,7 +239,6 @@
 }
 
 .wishlist__img-holder {
-  border: solid black;
   position: relative;
   margin: 10px;
   width: 80px;
