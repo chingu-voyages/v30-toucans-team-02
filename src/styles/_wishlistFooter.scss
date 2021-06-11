@@ -23,12 +23,19 @@
     display: flex;
     @media screen and (max-width: 767px) {
       // flex-direction: column;
+      // width: 125px;
     }
   }
   &__img-holder {
+    border: solid black;
     position: relative;
     margin: 10px;
     width: 80px;
+    @media screen and (max-width: 767px) {
+      // flex-direction: column;
+      width: 60px;
+      margin: 5px;
+    }
   }
   &__btn-delete {
     position: absolute;
