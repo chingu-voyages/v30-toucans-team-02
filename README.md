@@ -2,7 +2,7 @@
 
 Search and find your favorite books!
 
-[Live demo](https://agitated-mccarthy-ce667f.netlify.app/)
+[Live demo](https://lucid-hugle-4ef211.netlify.app/)
 
 ## Overview
 
