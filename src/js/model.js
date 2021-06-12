@@ -12,8 +12,12 @@ export const state = {
 
 export const loadSearchResults = async (query) => {
   try {
-    const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
-    const res = await fetch(searchQuery);
+    //const searchQuery = `${GOOGLE_BOOKS_API_URL}?q=${query}&key=${API_KEY}&maxResults=25`;
+    
+    // const res = await fetch(searchQuery);
+    // const data = await res.json();
+
+    const res = await fetch(`/.netlify/functions/fetch-books?q=${query}`);
     const data = await res.json();
 
     // load descriptions array
