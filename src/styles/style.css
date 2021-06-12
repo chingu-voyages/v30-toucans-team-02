@@ -187,6 +187,12 @@
   margin: 0 auto;
 }
 
+@media screen and (max-width: 767px) {
+  .search__logo {
+    max-width: 250px;
+  }
+}
+
 .search__input {
   width: 100%;
   max-width: 500px;
