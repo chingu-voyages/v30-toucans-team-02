@@ -17,7 +17,7 @@ export const loadSearchResults = async (query) => {
     // const res = await fetch(searchQuery);
     // const data = await res.json();
 
-    const res = await fetch(`/.netlify/functions/fetch-books?q=${query}`);
+    const res = await fetch(`/.netlify/functions/fetch-books?query=${query}`);
     const data = await res.json();
     console.log("data", data);
 
