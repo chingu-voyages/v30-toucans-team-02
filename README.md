@@ -2,11 +2,12 @@
 
 Search and find your favorite books!
 
-[Live demo](https://agitated-mccarthy-ce667f.netlify.app/)
+[Live demo](https://lucid-hugle-4ef211.netlify.app/)
 
 ## Overview
+<img width="929" alt="Screenshot 2021-06-12 at 18 48 17" src="https://user-images.githubusercontent.com/77361223/121784934-ced8e100-cbae-11eb-9712-810ba82600b9.png">
 
-This project was built using HTML, CSS (Sass), and JavaScript following a MVC approach. It uses the Fetch API (async/await) to query the Google Books API to pull search results.
+This project was built using HTML, SCSS, and JavaScript following a MVC approach. It uses the Fetch API (async/await) to query the Google Books API to pull search results.
 
 ## Features
 
