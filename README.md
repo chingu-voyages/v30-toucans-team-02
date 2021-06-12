@@ -20,6 +20,10 @@ This project was built using HTML, SCSS, and JavaScript following a MVC approach
 ## Running this project locally:
 
 1. Clone this repository to your local machine
+    - Option 1: Clone just the development branch: `git clone -b development git@github.com:chingu-voyages/v30-toucans-team-02.git`
+    - Option 2: Clone the entire repo and checkout the development branch: 
+      - `git clone git@github.com:chingu-voyages/v30-toucans-team-02.git`
+      - `git checkout origin/development`
 2. Navigate into the cloned directory
 3. Generate a [Google Books API key](https://console.cloud.google.com/apis/credentials)
 4. Create a copy of the `.env.example` template and rename it to `.env`. In your local `.env` file, replace `YOUR_API_KEY` with your generated API key from the previous step.
