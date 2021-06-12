@@ -6,7 +6,7 @@ const handler = async (event) => {
   console.log("query", query);
 
   const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
-  const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}&maxResults=25`;
+  const url = `https://www.googleapis.com/books/v1/volumes?q="harry+potter"&key=${API_KEY}&maxResults=25`;
   console.log("url", url);
 
   try {
