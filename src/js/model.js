@@ -13,7 +13,6 @@ export const loadSearchResults = async (query) => {
   try {
     const res = await fetch(`/.netlify/functions/fetch-books?query=${query}`);
     const data = await res.json();
-    console.log("data", data);
 
     // load descriptions array
     const descriptions = state.descriptions;
