@@ -2,9 +2,10 @@ const axios = require('axios');
 
 const handler = async (event) => {
 
-  const { query } = event.queryStringParameters.query;
+  //const { query } = event.queryStringParameters.query;
   // const queryString = event.queryStringParameters;
   // const query = queryString.query || "harry+potter";
+  const query = event.queryStringParameters.query;
  
   const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}&maxResults=25`;
