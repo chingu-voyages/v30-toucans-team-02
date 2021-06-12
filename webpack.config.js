@@ -6,6 +6,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 //const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   //index.js into ./dist
@@ -81,5 +82,13 @@ module.exports = {
     // }),
     new Dotenv(),
     //new FaviconsWebpackPlugin("src/assets/images/favicon.ico"),
+    new CopyPlugin({
+      patterns: [
+          {
+              context: "./src",
+              from: "assets/images/*.ico",
+          }
+      ],
+    }),
   ],
 };
