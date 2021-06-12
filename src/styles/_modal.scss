@@ -38,6 +38,16 @@
   &__google {
     display: none;
   }
+  &__google--btn {
+    background-color: $bg-color;
+    color: white;
+    padding: 5px;
+    border: 1px solid $primary-color;
+    border-radius: 3px;
+  }
+  &__google--btn:hover {
+    cursor: pointer;
+  }
 }
 
 .show-modal {
