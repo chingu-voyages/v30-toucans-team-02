@@ -15,11 +15,14 @@ This project was built using HTML, SCSS, and JavaScript following a MVC approach
 * Display search results in grid view (using CSS grid)
 * Additional functionality allows users to add books to a wishlist (saved via localStorage in the browser)
 * Users can also click the "i" button to display a modal popup that includes the book's description and the ability to be redirected to an external search to purchase the book.
+* The Google Books API key used in production is obscured using [Netlify serverless functions](https://docs.netlify.com/functions/build-with-javascript/).
 
 ## Running this project locally:
 
 1. Clone this repository to your local machine
 2. Navigate into the cloned directory
+3. Generate a [Google Books API key](https://console.cloud.google.com/apis/credentials)
+4. Create a copy of the `.env.example` template and rename it to `.env`. In your local `.env` file, replace `YOUR_API_KEY` with your generated API key from the previous step.
 3. Run `npm install` to install dependencies
 4. Run `npm run dev` to run the build script
 
