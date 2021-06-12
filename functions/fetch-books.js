@@ -2,17 +2,16 @@ const axios = require('axios');
 
 const handler = async (event) => {
 
-  const { query } = event.queryStringParameters;
-  console.log("query", query);
-
+  //const { query } = event.queryStringParameters;
+  const queryString = event.queryStringParameters;
+  const query = queryString.query || "harry+potter";
+ 
   const API_KEY = process.env.GOOGLE_BOOKS_API_KEY;
-  const url = `https://www.googleapis.com/books/v1/volumes?q="harry+potter"&key=${API_KEY}&maxResults=25`;
-  console.log("url", url);
-
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&key=${API_KEY}&maxResults=25`;
+  
   try {
     const { data } = await axios.get(url);
-    console.log("axios-data", data);
-
+ 
     return {
       statusCode: 200,
       body: JSON.stringify(data)
