@@ -57,13 +57,13 @@
   &__img-holder:hover {
     transform: scale(1.05);
   }
-  &__icon {
-    font-size: 50px;
-    position: fixed;
-    right: 10px;
-    bottom: 10px;
-    cursor: pointer;
-  }
+  // &__icon {
+  //   font-size: 50px;
+  //   position: fixed;
+  //   right: 10px;
+  //   bottom: 10px;
+  //   cursor: pointer;
+  // }
 }
 .show-wishlist {
   visibility: visible;
@@ -73,6 +73,10 @@
 
 .btn__wishlist {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  background: white;
+  border: 0;
 }
